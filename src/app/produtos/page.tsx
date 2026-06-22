@@ -6,6 +6,8 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import Badge from "@/components/ui/Badge";
 import RegulatoryHoldBox from "@/components/ui/RegulatoryHoldBox";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import BarChart from "@/components/ui/BarChart";
 import { SKUS } from "@/data/skus";
 import { SKU_ECONOMICS_INPUTS } from "@/data/skuCosts";
 
@@ -20,6 +22,7 @@ export default function ProdutosPage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Produtos" }]} />
           <p className="section-eyebrow text-gold-light">Product catalogue</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Six SKUs. Cosmetics only.
@@ -39,14 +42,16 @@ export default function ProdutosPage() {
             {SKUS.map((sku) => {
               const econInput = SKU_ECONOMICS_INPUTS.find((e) => e.skuId === sku.id)!;
               return (
-                <GlassCard key={sku.id} light className="flex flex-col">
+                <GlassCard key={sku.id} light className="group flex flex-col">
                   <div className="relative -mx-6 -mt-6 mb-4 aspect-square overflow-hidden rounded-t-2xl bg-cream-2">
                     <Image
                       src={sku.imagePath}
                       alt={sku.imageAlt}
                       fill
                       sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="object-cover"
+                      placeholder="blur"
+                      blurDataURL={sku.imageBlurDataUrl}
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <span className="absolute bottom-2 right-2 rounded-full bg-deep/80 px-2.5 py-1 text-[0.6rem] font-medium text-cream/90 backdrop-blur-sm">
                       AI concept render — not final packaging
@@ -98,6 +103,30 @@ export default function ProdutosPage() {
                 </GlassCard>
               );
             })}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-cream py-16 lg:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="At a glance"
+            title="Retail price comparison across the range (ex. VAT)."
+          />
+          <div className="mt-8">
+            <GlassCard light>
+              <BarChart
+                unit="€"
+                data={SKUS.map((sku) => {
+                  const input = SKU_ECONOMICS_INPUTS.find((e) => e.skuId === sku.id)!;
+                  return {
+                    label: `${sku.code} · ${sku.name}`,
+                    value: input.retailPriceExVat,
+                    formatted: `€${input.retailPriceExVat.toFixed(2)}`,
+                  };
+                })}
+              />
+            </GlassCard>
           </div>
         </Container>
       </section>

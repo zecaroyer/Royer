@@ -8,6 +8,11 @@ import { StatusPill, type ComplianceStatus } from "@/components/ui/StatusPill";
 import Badge, { marginTone } from "@/components/ui/Badge";
 import FormulationDisclaimerBox from "@/components/ui/FormulationDisclaimerBox";
 import RegulatoryHoldBox from "@/components/ui/RegulatoryHoldBox";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import TldrCallout from "@/components/ui/TldrCallout";
+import CopyLinkButton from "@/components/ui/CopyLinkButton";
+import ReadingProgress from "@/components/ReadingProgress";
+import ScrollSpyNav from "@/components/ScrollSpyNav";
 import { SKUS } from "@/data/skus";
 import { FORMULAS, formulaTotalPercentage, type Formula } from "@/data/formulas";
 import { getChemistry, INGREDIENT_CHEMISTRY } from "@/data/ingredientChemistry";
@@ -31,11 +36,18 @@ function ingredientCostPerUnit(formula: Formula, volumeMl: number, percentage: n
   return (percentage / 100) * costPerKg * (volumeMl / 1000) * DENSITY_G_PER_ML;
 }
 
+const SCROLLSPY_ITEMS = [
+  ...SKUS.map((s) => ({ id: s.id, label: `${s.code} · ${s.name}` })),
+  { id: "chemistry", label: "Ingredient chemistry reference" },
+];
+
 export default function FormulasPage() {
   return (
     <>
+      <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Fórmulas" }]} />
           <p className="section-eyebrow text-gold-light">Product formulation</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Six draft formulas, fully costed and chemistry-referenced.
@@ -46,23 +58,8 @@ export default function FormulasPage() {
             consideration. Cosmetics only — every claim restriction and regulatory hold
             below is binding on how these formulas may be marketed.
           </p>
-          <nav className="mt-10 flex flex-wrap gap-2">
-            {SKUS.map((s) => (
-              <a
-                key={s.id}
-                href={`#${s.id}`}
-                className="rounded-full border border-gold/30 bg-white/5 px-3.5 py-1.5 text-xs text-cream/80 hover:bg-white/10"
-              >
-                {s.code} · {s.name}
-              </a>
-            ))}
-            <a
-              href="#chemistry"
-              className="rounded-full border border-gold/30 bg-white/5 px-3.5 py-1.5 text-xs text-cream/80 hover:bg-white/10"
-            >
-              Ingredient chemistry reference
-            </a>
-          </nav>
+          <p className="mt-3 text-xs text-cream/45">Draft last updated: June 2026</p>
+          <ScrollSpyNav items={SCROLLSPY_ITEMS} />
         </Container>
       </section>
 
@@ -72,6 +69,12 @@ export default function FormulasPage() {
             <FormulationDisclaimerBox />
             <RegulatoryHoldBox />
           </div>
+          <TldrCallout>
+            Six cosmetic formulas, each summing to exactly 100.00% w/w, with full
+            INCI/chemistry breakdown, manufacturing steps, testing plan, and
+            live per-unit cost/margin — all draft-stage, none yet validated by a
+            qualified cosmetic chemist or safety assessor.
+          </TldrCallout>
         </Container>
       </section>
 
@@ -92,10 +95,21 @@ export default function FormulasPage() {
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div className="flex gap-4">
                   <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-gold/20 bg-cream-2 sm:h-24 sm:w-24">
-                    <Image src={sku.imagePath} alt={sku.imageAlt} fill sizes="96px" className="object-cover" />
+                    <Image
+                      src={sku.imagePath}
+                      alt={sku.imageAlt}
+                      fill
+                      sizes="96px"
+                      placeholder="blur"
+                      blurDataURL={sku.imageBlurDataUrl}
+                      className="object-cover"
+                    />
                   </div>
                   <div>
-                    <p className="section-eyebrow text-gold">{sku.code} · {formula.formulaCode}</p>
+                    <div className="flex items-center gap-3">
+                      <p className="section-eyebrow text-gold">{sku.code} · {formula.formulaCode}</p>
+                      <CopyLinkButton anchorId={sku.id} />
+                    </div>
                     <h2 className="mt-2 font-display text-3xl text-ink">{sku.name}</h2>
                     <p className="mt-2 max-w-2xl text-ink-soft">{sku.positioning}</p>
                   </div>

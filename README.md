@@ -8,9 +8,11 @@ a therapeutic treatment.
 
 See [`PROJECT_DOSSIER.md`](./PROJECT_DOSSIER.md) for the full technical/regulatory
 plan, [`FORMULATION_DOSSIER.md`](./FORMULATION_DOSSIER.md) for the six draft SKU
-formulas, ingredient chemistry, manufacturing process and cost/margin model, and
+formulas, ingredient chemistry, manufacturing process and cost/margin model,
+[`INVESTMENT_PLAN.md`](./INVESTMENT_PLAN.md) for the angel investment plan, and
 [`CLAUDE.md`](./CLAUDE.md) for the project rules that future AI-assisted sessions
-on this repo should follow.
+on this repo should follow. All three dossiers are mirrored under `public/` so
+the in-app "Download .md" links work — keep both copies in sync when editing.
 
 ## Compliance disclaimer
 
@@ -61,30 +63,39 @@ src/
     page.tsx                 # / — landing page
     produtos/                # /produtos — commercial SKU catalogue
     formulas/                # /formulas — formulation, chemistry & testing dossier
+    investidores/            # /investidores — angel investment plan
     projeto-laboratorio/     # /projeto-laboratorio — full technical project
     compliance/              # /compliance — compliance dashboard
     custos/                  # /custos — SKU cost & margin calculator
     rastreabilidade/         # /rastreabilidade — traceability system
-    layout.tsx               # root layout: fonts, NavBar, Footer
-    globals.css              # design tokens (palette, fonts, glass-card utilities)
+    mapa-do-site/            # /mapa-do-site — human-readable site map
+    layout.tsx               # root layout: fonts, NavBar, Footer, JSON-LD, skip link
+    globals.css              # design tokens, focus/scroll/print/reduced-motion styles
+    not-found.tsx, error.tsx # branded 404 and error boundary
+    sitemap.ts, manifest.ts, icon.svg  # SEO/PWA metadata (Next.js file conventions)
   components/
     layout/                  # NavBar, Footer
     ui/                      # GlassCard, SectionHeading, StatusPill, Badge, Table,
-                              # FlowDiagram, BarChart, Accordion, Button,
+                              # FlowDiagram, BarChart, Accordion, Button, Breadcrumb,
+                              # Tooltip, TldrCallout, CopyLinkButton,
                               # RegulatoryHoldBox, FormulationDisclaimerBox, etc.
-    ContactFormMockup.tsx
+    ContactFormMockup.tsx, NewsletterSignup.tsx
     CostCalculator.tsx        # client-side SKU economics calculator (/custos)
-    BotanicalArt.tsx
+    BotanicalArt.tsx, ScrollToTop.tsx, ReadingProgress.tsx, ScrollSpyNav.tsx,
+    RevealOnScroll.tsx, StatsCounter.tsx
   data/                      # typed content: compliance matrix, equipment, risks,
-                              # SOPs, lab zones, flows, roadmap, traceability,
-                              # entity/data-model definitions, and the formulation
-                              # module — skus.ts, formulas.ts, ingredientChemistry.ts,
-                              # packaging.ts, testingPlan.ts, skuCosts.ts
+                              # SOPs, lab zones, flows, roadmap, traceability, faq,
+                              # investment plan, entity/data-model definitions, and
+                              # the formulation module — skus.ts, formulas.ts,
+                              # ingredientChemistry.ts, packaging.ts, testingPlan.ts,
+                              # skuCosts.ts
   lib/
     nav.ts                   # shared navigation items
 PROJECT_DOSSIER.md           # full technical & regulatory dossier (English)
 FORMULATION_DOSSIER.md       # six SKU formulas, chemistry, process, cost model
+INVESTMENT_PLAN.md           # angel investment plan (market, unit economics, ask)
 CLAUDE.md                    # compliance-first project rules for AI sessions
+public/*.md                  # web-servable copies of the three dossiers above
 ```
 
 All page content is driven by typed data files under `src/data/`. There is no

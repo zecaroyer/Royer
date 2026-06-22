@@ -6,6 +6,7 @@ import StatCard from "@/components/ui/StatCard";
 import Button from "@/components/ui/Button";
 import BarChart from "@/components/ui/BarChart";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import ContactFormMockup from "@/components/ContactFormMockup";
 import { SKUS } from "@/data/skus";
 import { DEFAULT_SKU_ASSUMPTIONS, computeSkuEconomics } from "@/data/skuCosts";
@@ -31,6 +32,7 @@ export default function InvestidoresPage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Investidores" }]} />
           <p className="section-eyebrow text-gold-light">Angel investment plan</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Raising €{TARGET_RAISE_EUR.toLocaleString()} to take six finished
@@ -51,6 +53,26 @@ export default function InvestidoresPage() {
             or investment advice; not an offer to sell securities. See the full
             disclaimer at the bottom of this page.
           </p>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-4">
+            <GlassCard>
+              <p className="section-eyebrow text-gold-light">Raise target</p>
+              <p className="mt-2 font-display text-xl text-cream">€{TARGET_RAISE_EUR.toLocaleString()}</p>
+            </GlassCard>
+            <GlassCard>
+              <p className="section-eyebrow text-gold-light">Stage</p>
+              <p className="mt-2 font-display text-xl text-cream">Pre-seed</p>
+            </GlassCard>
+            <GlassCard>
+              <p className="section-eyebrow text-gold-light">Instrument</p>
+              <p className="mt-2 font-display text-xl text-cream">SAFE / note</p>
+            </GlassCard>
+            <GlassCard>
+              <p className="section-eyebrow text-gold-light">SKUs ready</p>
+              <p className="mt-2 font-display text-xl text-cream">6 of 6</p>
+            </GlassCard>
+          </div>
+          <p className="mt-2 text-xs text-cream/40">Draft last updated: June 2026</p>
         </Container>
       </section>
 

@@ -8,6 +8,8 @@ import { StatusPill, type ComplianceStatus } from "@/components/ui/StatusPill";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
 import Badge from "@/components/ui/Badge";
 import RegulatoryHoldBox from "@/components/ui/RegulatoryHoldBox";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import Tooltip from "@/components/ui/Tooltip";
 import { COMPLIANCE_MODULES, COMPLIANCE_SUMMARY } from "@/data/compliance";
 import { SKUS } from "@/data/skus";
 import { FORMULAS } from "@/data/formulas";
@@ -25,6 +27,7 @@ export default function CompliancePage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Compliance" }]} />
           <p className="section-eyebrow text-gold-light">Compliance dashboard</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Every regulatory module, one screen.
@@ -51,6 +54,12 @@ export default function CompliancePage() {
       <section className="bg-cream py-16 lg:py-20">
         <Container>
           <ComplianceWarningBox />
+          <p className="mt-6 text-xs text-ink-soft/70">
+            Glossary: <Tooltip term="PIF" definition="Product Information File — the technical file kept available to authorities per product (Art. 11)." />,{" "}
+            <Tooltip term="CPSR" definition="Cosmetic Product Safety Report — the safety assessment signed by a qualified safety assessor (Annex I)." />,{" "}
+            <Tooltip term="CPNP" definition="Cosmetic Product Notification Portal — mandatory EU-wide notification before market placement (Art. 13)." />,{" "}
+            <Tooltip term="GMP" definition="Good Manufacturing Practice — the EN ISO 22716 framework for cosmetics production." />.
+          </p>
         </Container>
       </section>
 

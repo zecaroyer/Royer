@@ -54,6 +54,15 @@ therapeutic project. Every future change must keep it that way.
 9. **Every formula must sum to exactly 100.00% w/w.** `formulaTotalPercentage()`
    in `src/data/formulas.ts` is the check — re-verify it after editing any
    ingredient row, including the Aqua/q.s. remainder.
+10. **Don't invent team bios or market certainty.** `INVESTMENT_PLAN.md` and
+    `/investidores` deliberately leave "Team" as a placeholder rather than
+    inventing founder credentials, and cite every market-size figure to a named
+    third-party source. Keep that pattern for any future investor-facing copy.
+11. **Root dossiers are mirrored into `public/`.** `PROJECT_DOSSIER.md`,
+    `FORMULATION_DOSSIER.md`, and `INVESTMENT_PLAN.md` each have a copy under
+    `public/` so the in-app "Download .md" links work. If you edit one at the
+    root, copy the change into `public/` too (or vice versa) — they are not
+    auto-synced.
 
 ## Working conventions
 

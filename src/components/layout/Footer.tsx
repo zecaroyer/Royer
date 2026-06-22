@@ -23,11 +23,16 @@ export default function Footer() {
             <ul className="mt-3 space-y-2 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="hover:text-cream">
+                  <Link href={item.href} className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
                     {item.label}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link href="/mapa-do-site" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                  Mapa do site
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -58,10 +63,15 @@ export default function Footer() {
           </p>
         </div>
 
-        <p className="mt-8 text-xs text-cream/40">
-          © {new Date().getFullYear()} ROYER — Project draft for internal,
-          investor and regulatory review purposes only.
-        </p>
+        <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
+          <p className="text-xs text-cream/40">
+            © {new Date().getFullYear()} ROYER — Project draft for internal,
+            investor and regulatory review purposes only.
+          </p>
+          <a href="#main-content" className="text-xs text-cream/50 hover:text-cream">
+            Back to top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );

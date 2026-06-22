@@ -16,6 +16,7 @@ export type Sku = {
   complianceStatus: ComplianceStatus;
   imagePath: string;
   imageAlt: string;
+  imageBlurDataUrl: string;
 };
 
 // Product photography note: images under /public/products are AI-generated
@@ -38,6 +39,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-01.jpg",
     imageAlt: "ROYER-branded concept render of the 50 ml airless pump jar for the Aloe Vera Daily Face Cream",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAgMF/8QAHxAAAQQCAgMAAAAAAAAAAAAAAgEDBBEAEhMhIjFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQL/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A3H3morSuyD1BFq6xRZDUprdgtg9XVZKZFdktiPIFCaFRhaL86XDHjPsgYoTLey34CtJ1XSZJr//Z",
   },
   {
     id: "sku-02",
@@ -53,6 +55,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-02.jpg",
     imageAlt: "ROYER-branded concept render of the 30 ml glass dropper bottle for the Rosehip + Jojoba Premium Face Oil",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwQF/8QAIBAAAgEEAgMBAAAAAAAAAAAAAQMCAAQREiFBMVFSkf/EABQBAQAAAAAAAAAAAAAAAAAAAAP/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAwDAQACEQMRAD8A0GyEFylI4ABOamQwOtls2EtojJHZ7p1pvE3AYdWqiCTDI2lx49Ui1liwZpms/ORx+UMLX//Z",
   },
   {
     id: "sku-03",
@@ -68,6 +71,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-03.jpg",
     imageAlt: "ROYER-branded concept render of the 200 ml jar for the Aloe + Olive Body Cream",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwQF/8QAIxAAAgICAQIHAAAAAAAAAAAAAQIDBAARIQUSIjFBYXGB8P/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A3rNyvDEXklVV5G/3xh171S4uoplcj18sJ6TnxMYpj3sexzoEEa5OuT75HH0+zHJKUgiVXUBVWTYXX1kif//Z",
   },
   {
     id: "sku-04",
@@ -83,6 +87,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-04.jpg",
     imageAlt: "ROYER-branded concept render of the 75 ml tube for the Coconut + Aloe Hand Cream",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAABAUG/8QAIBAAAwACAgEFAAAAAAAAAAAAAQIDBBEAEhQhMTJBUf/EABUBAQEAAAAAAAAAAAAAAAAAAAID/8QAFREBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhEDEQA/ANNlirY7iFBOp+LEbAPCYc7Ux28igpUOw7AaBA4y6l4uqN1Yj0P4eS8ZMzGnCLEV0dvUsB97I0ffkqUf/9k=",
   },
   {
     id: "sku-05",
@@ -98,6 +103,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-05.jpg",
     imageAlt: "ROYER-branded concept render of the 50 ml tin for the Hemp Seed + Calendula Botanical Balm",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAwUG/8QAIxAAAQMDAwUBAAAAAAAAAAAAAQIDEQAEIRIxQQUTImGh0f/EABUBAQEAAAAAAAAAAAAAAAAAAAME/8QAGBEAAgMAAAAAAAAAAAAAAAAAAEEhMWH/2gAMAwEAAhEDEQA/ANCXFLXjEbGcH9o3F6VypYA3j5iaK5ZeUnwcLRnUl0bp4gipx6bfOXBU+/3VDkzgeqmU2M8P/9k=",
   },
   {
     id: "sku-06",
@@ -113,6 +119,7 @@ export const SKUS: Sku[] = [
     complianceStatus: "draft",
     imagePath: "/products/sku-06.jpg",
     imageAlt: "ROYER-branded concept render of the 100 ml jar for the Aloe Botanical Gel-Cream",
+    imageBlurDataUrl: "data:image/jpeg;base64,/9j/2wBDABQODxIPDRQSEBIXFRQYHjIhHhwcHj0sLiQySUBMS0dARkVQWnNiUFVtVkVGZIhlbXd7gYKBTmCNl4x9lnN+gXz/2wBDARUXFx4aHjshITt8U0ZTfHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHx8fHz/wAARCAAQABADASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAQMEBf/EACAQAAICAwABBQAAAAAAAAAAAAECAxEABAUSISJBUnH/xAAVAQEBAAAAAAAAAAAAAAAAAAABA//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oADAMBAAIRAxEAPwDX6PQGhGjmJpPIn0BqqwczpL0EZ1iZK+xxM2jvztG0kkBaFiVJFq1ijYynV1J4nkeRovNwo9ikBQP35yRr/9k=",
   },
 ];
 

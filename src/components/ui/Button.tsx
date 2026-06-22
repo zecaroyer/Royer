@@ -23,7 +23,7 @@ export default function Button({
   return (
     <Link
       href={href}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-colors ${VARIANT_CLASSES[variant]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-medium tracking-wide transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.98] ${VARIANT_CLASSES[variant]} ${className}`}
     >
       {children}
     </Link>

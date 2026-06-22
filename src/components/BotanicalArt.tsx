@@ -6,6 +6,7 @@ export default function BotanicalArt({ className = "" }: { className?: string })
       fill="none"
       stroke="currentColor"
       strokeWidth="1"
+      aria-hidden="true"
     >
       {[0, 1, 2, 3, 4].map((i) => {
         const angle = -60 + i * 30;

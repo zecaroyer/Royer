@@ -4,6 +4,7 @@ import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
 import FlowDiagram from "@/components/ui/FlowDiagram";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import { TRACEABILITY_FLOW, MOCK_BATCH_RECORDS } from "@/data/traceability";
 import { ENTITIES, ENTITY_GROUPS } from "@/data/entities";
 
@@ -57,6 +58,7 @@ export default function RastreabilidadePage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Rastreabilidade" }]} />
           <p className="section-eyebrow text-gold-light">Rastreabilidade</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Traceability &amp; quality system

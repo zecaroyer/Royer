@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
+import Breadcrumb from "@/components/ui/Breadcrumb";
 import CostCalculator from "@/components/CostCalculator";
 
 export const metadata: Metadata = {
@@ -14,6 +15,7 @@ export default function CustosPage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Custos" }]} />
           <p className="section-eyebrow text-gold-light">Cost calculator</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             SKU economics, fully editable.

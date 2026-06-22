@@ -2,12 +2,21 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/lib/nav";
 
 export default function NavBar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-deep/95 backdrop-blur-md">
@@ -22,13 +31,14 @@ export default function NavBar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-4 xl:flex">
+        <nav className="hidden items-center gap-4 xl:flex" aria-label="Primary">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={active ? "page" : undefined}
                 className={`text-sm font-medium tracking-wide whitespace-nowrap transition-colors ${
                   active ? "text-gold-light" : "text-cream/75 hover:text-cream"
                 }`}
@@ -49,9 +59,9 @@ export default function NavBar() {
         </div>
 
         <button
-          aria-label="Abrir menu"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
           aria-expanded={open}
-          className="flex flex-col gap-1.5 xl:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           <span className={`h-px w-6 bg-cream transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
@@ -61,21 +71,23 @@ export default function NavBar() {
       </div>
 
       {open && (
-        <nav className="border-t border-gold/15 bg-deep px-6 py-4 xl:hidden">
-          <ul className="flex flex-col gap-4">
-            {NAV_ITEMS.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  onClick={() => setOpen(false)}
-                  className={`text-sm font-medium ${
-                    pathname === item.href ? "text-gold-light" : "text-cream/80"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+        <nav className="border-t border-gold/15 bg-deep px-6 py-4 xl:hidden" aria-label="Mobile">
+          <ul className="flex flex-col">
+            {NAV_ITEMS.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
+                    className={`block min-h-[44px] py-2.5 text-sm font-medium ${active ? "text-gold-light" : "text-cream/80"}`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}
@@ -85,7 +97,7 @@ export default function NavBar() {
 
 function LeafMark() {
   return (
-    <svg width="28" height="28" viewBox="0 0 40 40" className="text-gold-light">
+    <svg width="28" height="28" viewBox="0 0 40 40" className="text-gold-light" aria-hidden="true">
       <path
         className="leaf-line"
         d="M20 36C20 36 8 30 8 16C8 8 14 4 20 4C26 4 32 8 32 16C32 30 20 36 20 36Z"

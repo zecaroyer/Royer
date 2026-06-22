@@ -10,7 +10,7 @@ export function Table({ children }: { children: ReactNode }) {
 
 export function THead({ children }: { children: ReactNode }) {
   return (
-    <thead className="bg-lab-green text-cream">
+    <thead className="sticky top-[88px] z-10 bg-lab-green text-cream">
       <tr>{children}</tr>
     </thead>
   );

@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -47,6 +48,16 @@ export const viewport: Viewport = {
   themeColor: "#0d2118",
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "ROYER",
+  description:
+    "Premium botanical cosmetics laboratory project in Portugal — aloe vera, hemp seed oil, compliance-first under EU Regulation (EC) 1223/2009.",
+  slogan: "Botanical Skincare, Portugal",
+  areaServed: "EU",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -55,9 +66,20 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-cream text-ink antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-gold focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-deep"
+        >
+          Skip to content
+        </a>
         <NavBar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

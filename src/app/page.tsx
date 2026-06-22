@@ -9,8 +9,13 @@ import DisclaimerBar from "@/components/ui/DisclaimerBar";
 import FlowDiagram from "@/components/ui/FlowDiagram";
 import ContactFormMockup from "@/components/ContactFormMockup";
 import BotanicalArt from "@/components/BotanicalArt";
+import RevealOnScroll from "@/components/RevealOnScroll";
+import StatsCounter from "@/components/StatsCounter";
+import NewsletterSignup from "@/components/NewsletterSignup";
+import Accordion from "@/components/ui/Accordion";
 import { PRODUCT_FAMILIES, POSITIONING_NOTES } from "@/data/productFamilies";
 import { TRACEABILITY_FLOW } from "@/data/traceability";
+import { HOME_FAQ } from "@/data/faq";
 
 export default function HomePage() {
   return (
@@ -62,15 +67,45 @@ export default function HomePage() {
               <p className="mt-2 text-cream/85">Cosmetics only — never medicine or supplement</p>
             </GlassCard>
           </div>
+
+          <div className="mt-14 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-gold/15 pt-6 text-xs text-cream/55">
+            <span>🇪🇺 EU single market</span>
+            <span>🇵🇹 Manufactured in Portugal</span>
+            <span>ISO 22716 GMP-aligned</span>
+            <span>Reg. (EC) 1223/2009</span>
+            <span>Cosmetics only — no medical claims</span>
+          </div>
+
+          <div className="mt-10 flex justify-center sm:hidden lg:flex lg:justify-start" aria-hidden="true">
+            <a href="#stats" className="animate-bounce text-cream/40 hover:text-cream/70">
+              <svg width="22" height="22" viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </a>
+          </div>
         </Container>
       </section>
 
       <DisclaimerBar />
 
+      {/* Stats */}
+      <section id="stats" className="bg-deep-2 py-14 text-cream">
+        <Container>
+          <StatsCounter
+            stats={[
+              { label: "SKUs formulated", value: 6 },
+              { label: "Data-model entities", value: 28 },
+              { label: "Compliance modules tracked", value: 12 },
+              { label: "Medical/therapeutic claims made", value: 0 },
+            ]}
+          />
+        </Container>
+      </section>
+
       {/* Concept */}
       <section className="bg-cream py-20 lg:py-28">
         <Container>
-          <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+          <RevealOnScroll className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <SectionHeading
               eyebrow="Concept"
               title="A Portuguese laboratory designed around one plant, done properly."
@@ -82,13 +117,14 @@ export default function HomePage() {
               <StatCard label="Manufacturing standard" value="ISO 22716" hint="GMP-aligned, not pharma-sterile" />
               <StatCard label="Market scope" value="EU / Portugal" hint="CPNP-notified, INFARMED-registered" />
             </div>
-          </div>
+          </RevealOnScroll>
         </Container>
       </section>
 
       {/* Product families */}
       <section className="bg-cream-2 py-20 lg:py-28">
         <Container>
+          <RevealOnScroll>
           <SectionHeading
             eyebrow="Product families"
             title="A focused range, not a catalogue."
@@ -126,12 +162,14 @@ export default function HomePage() {
           <Button href="/produtos" variant="ghost" className="mt-8">
             See the full 6-SKU catalogue →
           </Button>
+          </RevealOnScroll>
         </Container>
       </section>
 
       {/* Why aloe vera and botanicals */}
       <section className="bg-botanical-dark py-20 text-cream lg:py-28">
         <Container>
+          <RevealOnScroll>
           <SectionHeading
             light
             eyebrow="Why aloe vera & botanicals"
@@ -161,6 +199,7 @@ export default function HomePage() {
               </p>
             </GlassCard>
           </div>
+          </RevealOnScroll>
         </Container>
       </section>
 
@@ -233,6 +272,46 @@ export default function HomePage() {
         </Container>
       </section>
 
+      {/* Download dossiers */}
+      <section className="bg-cream py-16 lg:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Go deeper"
+            title="Read the full technical dossiers."
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <a href="/PROJECT_DOSSIER.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
+              <p className="font-medium text-ink">Project Dossier</p>
+              <p className="mt-1 text-xs text-ink-soft">Laboratory, GMP, equipment, roadmap</p>
+              <span className="mt-3 inline-block text-xs text-lab-green group-hover:underline">Download .md →</span>
+            </a>
+            <a href="/FORMULATION_DOSSIER.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
+              <p className="font-medium text-ink">Formulation Dossier</p>
+              <p className="mt-1 text-xs text-ink-soft">Six formulas, chemistry, testing</p>
+              <span className="mt-3 inline-block text-xs text-lab-green group-hover:underline">Download .md →</span>
+            </a>
+            <a href="/INVESTMENT_PLAN.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
+              <p className="font-medium text-ink">Investment Plan</p>
+              <p className="mt-1 text-xs text-ink-soft">Market, unit economics, the ask</p>
+              <span className="mt-3 inline-block text-xs text-lab-green group-hover:underline">Download .md →</span>
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-cream-2 py-20 lg:py-28">
+        <Container>
+          <SectionHeading
+            eyebrow="Frequently asked"
+            title="The questions everyone asks first."
+          />
+          <div className="mt-10 max-w-3xl">
+            <Accordion items={HOME_FAQ.map((f) => ({ id: f.question, title: f.question, content: f.answer }))} />
+          </div>
+        </Container>
+      </section>
+
       {/* Contact */}
       <section id="contact" className="bg-botanical-dark py-20 text-cream lg:py-28">
         <Container>
@@ -246,6 +325,12 @@ export default function HomePage() {
               />
               <div className="mt-8">
                 <ComplianceWarningBox compact />
+              </div>
+              <div className="mt-8 border-t border-gold/15 pt-6">
+                <p className="text-sm font-medium text-cream/85">Not ready to talk yet? Get notified at launch.</p>
+                <div className="mt-3">
+                  <NewsletterSignup />
+                </div>
               </div>
             </div>
             <ContactFormMockup />

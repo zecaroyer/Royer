@@ -5,6 +5,10 @@ import GlassCard from "@/components/ui/GlassCard";
 import Button from "@/components/ui/Button";
 import ComplianceWarningBox from "@/components/ui/ComplianceWarningBox";
 import FlowDiagram from "@/components/ui/FlowDiagram";
+import Breadcrumb from "@/components/ui/Breadcrumb";
+import TldrCallout from "@/components/ui/TldrCallout";
+import ReadingProgress from "@/components/ReadingProgress";
+import ScrollSpyNav from "@/components/ScrollSpyNav";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
 import { LAB_ZONES } from "@/data/labZones";
 import {
@@ -71,8 +75,10 @@ const EQUIPMENT_CATEGORIES: EquipmentCategory[] = [
 export default function ProjetoLaboratorioPage() {
   return (
     <>
+      <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
+          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Projeto Laboratório" }]} />
           <p className="section-eyebrow text-gold-light">Technical project</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Laboratory project — full technical concept
@@ -83,17 +89,8 @@ export default function ProjetoLaboratorioPage() {
             roadmap. Every section marked for expert validation must be confirmed before
             construction or regulatory submission.
           </p>
-          <nav className="mt-10 flex flex-wrap gap-2">
-            {TOC.map((t) => (
-              <a
-                key={t.id}
-                href={`#${t.id}`}
-                className="rounded-full border border-gold/30 bg-white/5 px-3.5 py-1.5 text-xs text-cream/80 hover:bg-white/10"
-              >
-                {t.label}
-              </a>
-            ))}
-          </nav>
+          <p className="mt-3 text-xs text-cream/45">Draft last updated: June 2026</p>
+          <ScrollSpyNav items={TOC} />
         </Container>
       </section>
 
@@ -119,6 +116,12 @@ export default function ProjetoLaboratorioPage() {
               <p className="mt-2 text-sm text-ink-soft">ISO 22716-aligned GMP — not a pharmaceutical cleanroom.</p>
             </GlassCard>
           </div>
+          <TldrCallout>
+            A 13-zone, ISO 22716-aligned laboratory in Portugal, built across six
+            roadmap phases over 12 months — from legal foundations to first
+            commercial batch — with a full equipment list, QC plan, and risk
+            register already mapped out below.
+          </TldrCallout>
         </Container>
       </section>
 

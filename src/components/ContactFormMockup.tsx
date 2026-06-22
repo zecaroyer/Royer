@@ -16,7 +16,7 @@ export default function ContactFormMockup({
 
   if (submitted) {
     return (
-      <div className="glass-card-light rounded-2xl p-8 text-center">
+      <div className="glass-card-light animate-[fadeIn_0.4s_ease-out] rounded-2xl p-8 text-center">
         <p className="font-display text-xl text-ink">Request received — mockup only</p>
         <p className="mt-2 text-sm text-ink-soft">
           This form is a design mockup and is not yet connected to a backend or mailbox.
@@ -30,11 +30,11 @@ export default function ContactFormMockup({
   return (
     <form onSubmit={handleSubmit} className="glass-card-light grid gap-4 rounded-2xl p-8">
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Name" name="name" />
+        <Field label="Name" name="name" required />
         <Field label="Organisation" name="organisation" />
       </div>
       <div className="grid gap-4 sm:grid-cols-2">
-        <Field label="Email" name="email" type="email" />
+        <Field label="Email" name="email" type="email" required />
         <Field label="Role" name="role" placeholder="Investor / Partner / Regulator / Other" />
       </div>
       <label className="text-sm font-medium text-ink-soft">
@@ -67,7 +67,7 @@ export default function ContactFormMockup({
       </button>
       <p className="text-xs text-ink-soft/70">
         Design mockup — no data is transmitted or stored. Connect to a real endpoint
-        before production use.
+        before production use. Fields marked <span className="text-gold">*</span> are required.
       </p>
     </form>
   );
@@ -78,19 +78,23 @@ function Field({
   name,
   type = "text",
   placeholder,
+  required = false,
 }: {
   label: string;
   name: string;
   type?: string;
   placeholder?: string;
+  required?: boolean;
 }) {
   return (
     <label className="text-sm font-medium text-ink-soft">
       {label}
+      {required && <span className="text-gold"> *</span>}
       <input
         type={type}
         name={name}
         placeholder={placeholder}
+        required={required}
         className="mt-1.5 w-full rounded-lg border border-ink/15 bg-white/70 px-3 py-2.5 text-sm text-ink"
       />
     </label>
