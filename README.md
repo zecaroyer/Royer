@@ -9,10 +9,12 @@ a therapeutic treatment.
 See [`PROJECT_DOSSIER.md`](./PROJECT_DOSSIER.md) for the full technical/regulatory
 plan, [`FORMULATION_DOSSIER.md`](./FORMULATION_DOSSIER.md) for the six draft SKU
 formulas, ingredient chemistry, manufacturing process and cost/margin model,
-[`INVESTMENT_PLAN.md`](./INVESTMENT_PLAN.md) for the angel investment plan, and
-[`CLAUDE.md`](./CLAUDE.md) for the project rules that future AI-assisted sessions
-on this repo should follow. All three dossiers are mirrored under `public/` so
-the in-app "Download .md" links work — keep both copies in sync when editing.
+[`SOP_MANUFACTURING.md`](./SOP_MANUFACTURING.md) for the per-SKU manufacturing
+SOPs, [`INVESTMENT_PLAN.md`](./INVESTMENT_PLAN.md) for the angel investment plan,
+and [`CLAUDE.md`](./CLAUDE.md) for the project rules that future AI-assisted
+sessions on this repo should follow. All four dossiers are mirrored under
+`public/` so the in-app "Download .md" links work — keep both copies in sync
+when editing.
 
 ## Compliance disclaimer
 
@@ -68,6 +70,7 @@ src/
     compliance/              # /compliance — compliance dashboard
     custos/                  # /custos — SKU cost & margin calculator
     rastreabilidade/         # /rastreabilidade — traceability system
+    sops/                    # /sops — per-SKU manufacturing SOPs
     mapa-do-site/            # /mapa-do-site — human-readable site map
     layout.tsx               # root layout: fonts, NavBar, Footer, JSON-LD, skip link
     globals.css              # design tokens, focus/scroll/print/reduced-motion styles
@@ -84,15 +87,16 @@ src/
     BotanicalArt.tsx, ScrollToTop.tsx, ReadingProgress.tsx, ScrollSpyNav.tsx,
     RevealOnScroll.tsx, StatsCounter.tsx
   data/                      # typed content: compliance matrix, equipment, risks,
-                              # SOPs, lab zones, flows, roadmap, traceability, faq,
-                              # investment plan, entity/data-model definitions, and
-                              # the formulation module — skus.ts, formulas.ts,
-                              # ingredientChemistry.ts, packaging.ts, testingPlan.ts,
-                              # skuCosts.ts
+                              # facility SOPs, lab zones, flows, roadmap,
+                              # traceability, faq, investment plan, entity/data-model
+                              # definitions, and the formulation module — skus.ts,
+                              # formulas.ts, ingredientChemistry.ts, packaging.ts,
+                              # testingPlan.ts, skuCosts.ts, manufacturingSops.ts
   lib/
     nav.ts                   # shared navigation items
 PROJECT_DOSSIER.md           # full technical & regulatory dossier (English)
 FORMULATION_DOSSIER.md       # six SKU formulas, chemistry, process, cost model
+SOP_MANUFACTURING.md         # per-SKU manufacturing SOPs (purpose, scope, IPC, safety)
 INVESTMENT_PLAN.md           # angel investment plan (market, unit economics, ask)
 CLAUDE.md                    # compliance-first project rules for AI sessions
 public/*.md                  # web-servable copies of the three dossiers above

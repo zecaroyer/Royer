@@ -279,7 +279,7 @@ export default function HomePage() {
             eyebrow="Go deeper"
             title="Read the full technical dossiers."
           />
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <a href="/PROJECT_DOSSIER.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
               <p className="font-medium text-ink">Project Dossier</p>
               <p className="mt-1 text-xs text-ink-soft">Laboratory, GMP, equipment, roadmap</p>
@@ -288,6 +288,11 @@ export default function HomePage() {
             <a href="/FORMULATION_DOSSIER.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
               <p className="font-medium text-ink">Formulation Dossier</p>
               <p className="mt-1 text-xs text-ink-soft">Six formulas, chemistry, testing</p>
+              <span className="mt-3 inline-block text-xs text-lab-green group-hover:underline">Download .md →</span>
+            </a>
+            <a href="/SOP_MANUFACTURING.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">
+              <p className="font-medium text-ink">Manufacturing SOPs</p>
+              <p className="mt-1 text-xs text-ink-soft">Per-SKU procedure, safety, IPC</p>
               <span className="mt-3 inline-block text-xs text-lab-green group-hover:underline">Download .md →</span>
             </a>
             <a href="/INVESTMENT_PLAN.md" className="group rounded-2xl border border-ink/10 bg-white/60 p-5 transition-colors hover:border-gold/40">

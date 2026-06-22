@@ -324,6 +324,9 @@ export default function ProjetoLaboratorioPage() {
               </tbody>
             </Table>
           </div>
+          <Button href="/sops" variant="ghost" className="mt-8">
+            Open the six per-SKU manufacturing SOPs →
+          </Button>
         </Container>
       </section>
 

@@ -29,6 +29,11 @@ export default function Footer() {
                 </li>
               ))}
               <li>
+                <Link href="/sops" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                  SOPs de fabricação
+                </Link>
+              </li>
+              <li>
                 <Link href="/mapa-do-site" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
                   Mapa do site
                 </Link>

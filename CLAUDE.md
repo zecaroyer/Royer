@@ -59,10 +59,16 @@ therapeutic project. Every future change must keep it that way.
     inventing founder credentials, and cite every market-size figure to a named
     third-party source. Keep that pattern for any future investor-facing copy.
 11. **Root dossiers are mirrored into `public/`.** `PROJECT_DOSSIER.md`,
-    `FORMULATION_DOSSIER.md`, and `INVESTMENT_PLAN.md` each have a copy under
-    `public/` so the in-app "Download .md" links work. If you edit one at the
-    root, copy the change into `public/` too (or vice versa) — they are not
-    auto-synced.
+    `FORMULATION_DOSSIER.md`, `INVESTMENT_PLAN.md`, and `SOP_MANUFACTURING.md`
+    each have a copy under `public/` so the in-app "Download .md" links work. If
+    you edit one at the root, copy the change into `public/` too (or vice versa)
+    — they are not auto-synced.
+12. **Manufacturing SOPs never duplicate the procedure.** `src/data/
+    manufacturingSops.ts` holds the SOP scaffolding (purpose, scope,
+    responsibilities, safety, equipment, IPC, documentation); the actual
+    step-by-step procedure is always read from `formula.manufacturingProcess`
+    in `src/data/formulas.ts`. Don't hand-copy steps into the SOP file — it
+    will drift out of sync with the approved formula.
 
 ## Working conventions
 

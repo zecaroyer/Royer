@@ -21,7 +21,13 @@ const PAGE_DESCRIPTIONS: Record<string, string> = {
   "/rastreabilidade": "Batch traceability system: architecture, data model, mock batch records.",
 };
 
+const EXTRA_PAGES = [
+  { href: "/sops", label: "SOPs de fabricação", description: "Per-SKU manufacturing Standard Operating Procedures: purpose, scope, responsibilities, safety, equipment, IPC and procedure." },
+];
+
 export default function MapaDoSitePage() {
+  const allPages = [...NAV_ITEMS, ...EXTRA_PAGES];
+
   return (
     <section className="bg-cream py-20 lg:py-28">
       <Container>
@@ -31,12 +37,14 @@ export default function MapaDoSitePage() {
           title="Every page, one line each."
         />
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-          {NAV_ITEMS.map((item) => (
+          {allPages.map((item) => (
             <GlassCard key={item.href} light>
               <a href={item.href} className="font-display text-lg text-ink hover:text-lab-green">
                 {item.label} <span className="text-xs text-ink-soft/60">({item.href})</span>
               </a>
-              <p className="mt-2 text-sm text-ink-soft">{PAGE_DESCRIPTIONS[item.href]}</p>
+              <p className="mt-2 text-sm text-ink-soft">
+                {PAGE_DESCRIPTIONS[item.href] ?? ("description" in item ? item.description : "")}
+              </p>
             </GlassCard>
           ))}
         </div>

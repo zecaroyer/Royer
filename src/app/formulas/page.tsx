@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
@@ -185,6 +186,12 @@ export default function FormulasPage() {
                       </li>
                     ))}
                   </ol>
+                  <Link
+                    href={`/sops#${sku.id}`}
+                    className="mt-3 inline-flex items-center text-xs font-medium text-lab-green hover:underline"
+                  >
+                    Full manufacturing SOP (purpose, scope, IPC, safety) →
+                  </Link>
 
                   <h3 className="mb-3 mt-10 font-display text-base text-ink">Claim restrictions</h3>
                   <ul className="space-y-2">
