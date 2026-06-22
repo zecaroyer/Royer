@@ -6,7 +6,7 @@ import CostCalculator from "@/components/CostCalculator";
 export const metadata: Metadata = {
   title: "Cost Calculator",
   description:
-    "Editable cost and production economics model for four packaging scenarios: 30 ml premium face cream, 50 ml face cream, 100 ml body cream and 250 ml lotion.",
+    "Editable cost and production economics model for the six real SKUs: raw material, packaging, labour, QC, and regulatory allocation, D2C and wholesale margin, minimum retail price, and batch profit.",
 };
 
 export default function CustosPage() {
@@ -16,12 +16,14 @@ export default function CustosPage() {
         <Container>
           <p className="section-eyebrow text-gold-light">Cost calculator</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
-            Production economics, fully editable.
+            SKU economics, fully editable.
           </h1>
           <p className="mt-5 max-w-2xl text-balance text-cream/75">
-            Four packaging scenarios — 30 ml premium face cream, 50 ml face cream,
-            100 ml body cream and 250 ml lotion — built from the same editable assumption
-            set. Every number is a placeholder pending real supplier quotations.
+            Real per-unit economics for the six SKUs defined on /formulas — raw
+            material, packaging, labour, QC and regulatory allocation rolled into a
+            total COGS, with D2C and wholesale margin, minimum retail price for 60/65/70%
+            margin targets, and batch profit at 500/1,000/5,000 units. Every number is a
+            placeholder pending real supplier quotations.
           </p>
         </Container>
       </section>
@@ -30,8 +32,8 @@ export default function CustosPage() {
         <Container>
           <SectionHeading
             eyebrow="How to read this page"
-            title="Change any assumption — every scenario recalculates instantly."
-            description="Packaging, formula, labour, QC, regulatory allocation, wastage and margin inputs are shared across all four scenarios. Retail price is editable per scenario. Defaults reflect rough Portuguese small-batch cosmetics economics and are not quotations."
+            title="Change any assumption — every SKU recalculates instantly."
+            description="Global assumptions (labour, QC budget, regulatory allocation, wastage, distributor margin) apply across all six SKUs. Retail price, packaging cost and raw material cost are editable per SKU. Defaults reflect rough Portuguese small-batch cosmetics economics and are not quotations."
           />
           <div className="mt-10">
             <CostCalculator />

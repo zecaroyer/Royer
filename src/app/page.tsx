@@ -123,6 +123,9 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
+          <Button href="/produtos" variant="ghost" className="mt-8">
+            See the full 6-SKU catalogue →
+          </Button>
         </Container>
       </section>
 

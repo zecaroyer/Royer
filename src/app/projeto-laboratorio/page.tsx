@@ -19,7 +19,8 @@ import { SOP_LIST } from "@/data/sops";
 import { ROADMAP } from "@/data/roadmap";
 import { RISK_REGISTER, type RiskLevel } from "@/data/risks";
 import { VALIDATION_CHECKLIST } from "@/data/validationChecklist";
-import { COST_SCENARIOS, DEFAULT_ASSUMPTIONS, computeScenarioEconomics } from "@/data/costs";
+import { SKUS } from "@/data/skus";
+import { DEFAULT_SKU_ASSUMPTIONS, computeSkuEconomics } from "@/data/skuCosts";
 
 export const metadata: Metadata = {
   title: "Laboratory Project",
@@ -357,26 +358,26 @@ export default function ProjetoLaboratorioPage() {
         <Container>
           <SectionHeading
             eyebrow="11 · Cost model"
-            title="Four packaging scenarios, fully editable."
-            description="Headline figures below use the default placeholder assumptions. Open the calculator to adjust every input — packaging, formula, labour, QC, regulatory allocation, wastage and margins."
+            title="Six real SKUs, fully editable."
+            description="Headline figures below use the default placeholder assumptions for the six SKUs defined on /formulas. Open the calculator to adjust every input — packaging, raw material, labour, QC, regulatory allocation, wastage and margins."
           />
           <div className="mt-10">
             <Table>
               <THead>
-                <Th>Scenario</Th>
-                <Th>Unit cost</Th>
-                <Th>Batch cost</Th>
-                <Th>Manufacturer margin</Th>
+                <Th>SKU</Th>
+                <Th>Total COGS / unit</Th>
+                <Th>D2C margin</Th>
+                <Th>Wholesale margin</Th>
               </THead>
               <tbody>
-                {COST_SCENARIOS.map((s) => {
-                  const econ = computeScenarioEconomics(s, DEFAULT_ASSUMPTIONS);
+                {SKUS.map((sku) => {
+                  const econ = computeSkuEconomics(sku.id, DEFAULT_SKU_ASSUMPTIONS);
                   return (
-                    <Tr key={s.id}>
-                      <Td className="font-medium text-ink">{s.name}</Td>
-                      <Td>€{econ.fullyLoadedUnitCost.toFixed(2)}</Td>
-                      <Td>€{econ.batchDirectCost.toFixed(0)}</Td>
-                      <Td>{econ.manufacturerMarginPct.toFixed(0)}%</Td>
+                    <Tr key={sku.id}>
+                      <Td className="font-medium text-ink">{sku.code} · {sku.name}</Td>
+                      <Td>€{econ.totalCogsPerUnit.toFixed(2)}</Td>
+                      <Td>{econ.grossMarginD2cPct.toFixed(0)}%</Td>
+                      <Td>{econ.grossMarginWholesalePct.toFixed(0)}%</Td>
                     </Tr>
                   );
                 })}

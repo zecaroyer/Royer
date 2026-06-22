@@ -22,14 +22,14 @@ export default function NavBar() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="hidden items-center gap-4 xl:flex">
           {NAV_ITEMS.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-medium tracking-wide transition-colors ${
+                className={`text-sm font-medium tracking-wide whitespace-nowrap transition-colors ${
                   active ? "text-gold-light" : "text-cream/75 hover:text-cream"
                 }`}
               >
@@ -39,10 +39,10 @@ export default function NavBar() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden xl:block">
           <Link
             href="/projeto-laboratorio"
-            className="rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20"
+            className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20"
           >
             Pedir dossiê do projeto
           </Link>
@@ -51,7 +51,7 @@ export default function NavBar() {
         <button
           aria-label="Abrir menu"
           aria-expanded={open}
-          className="flex flex-col gap-1.5 lg:hidden"
+          className="flex flex-col gap-1.5 xl:hidden"
           onClick={() => setOpen((v) => !v)}
         >
           <span className={`h-px w-6 bg-cream transition-transform ${open ? "translate-y-1.5 rotate-45" : ""}`} />
@@ -61,7 +61,7 @@ export default function NavBar() {
       </div>
 
       {open && (
-        <nav className="border-t border-gold/15 bg-deep px-6 py-4 lg:hidden">
+        <nav className="border-t border-gold/15 bg-deep px-6 py-4 xl:hidden">
           <ul className="flex flex-col gap-4">
             {NAV_ITEMS.map((item) => (
               <li key={item.href}>

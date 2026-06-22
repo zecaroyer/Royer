@@ -6,7 +6,11 @@ import StatCard from "@/components/ui/StatCard";
 import ComplianceWarningBox from "@/components/ui/ComplianceWarningBox";
 import { StatusPill, type ComplianceStatus } from "@/components/ui/StatusPill";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
+import Badge from "@/components/ui/Badge";
+import RegulatoryHoldBox from "@/components/ui/RegulatoryHoldBox";
 import { COMPLIANCE_MODULES, COMPLIANCE_SUMMARY } from "@/data/compliance";
+import { SKUS } from "@/data/skus";
+import { FORMULAS } from "@/data/formulas";
 
 export const metadata: Metadata = {
   title: "Compliance Dashboard",
@@ -109,6 +113,74 @@ export default function CompliancePage() {
                 ))}
               </tbody>
             </Table>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-cream-2 py-16 lg:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Formulation compliance"
+            title="Per-formula compliance, down to pH and microbiological risk."
+            description="Drawn directly from the formulation data behind /formulas. Nothing here is approved — every column reflects draft-stage status pending expert review."
+          />
+          <div className="mt-10">
+            <Table>
+              <THead>
+                <Th>SKU</Th>
+                <Th>Formula status</Th>
+                <Th>INCI verification</Th>
+                <Th>Restricted substances</Th>
+                <Th>Allergen declaration</Th>
+                <Th>Preservative validation</Th>
+                <Th>Target pH</Th>
+                <Th>Microbiological risk</Th>
+                <Th>Stability testing</Th>
+                <Th>Packaging compatibility</Th>
+                <Th>CPSR</Th>
+                <Th>PIF</Th>
+                <Th>CPNP</Th>
+              </THead>
+              <tbody>
+                {SKUS.map((sku) => {
+                  const formula = FORMULAS.find((f) => f.skuId === sku.id)!;
+                  const fc = formula.formulationCompliance;
+                  return (
+                    <Tr key={sku.id}>
+                      <Td className="font-medium text-ink">{sku.code}<span className="block text-xs text-ink-soft">{sku.name}</span></Td>
+                      <Td><StatusPill status={formula.status} /></Td>
+                      <Td>{fc.inciVerificationNeeded ? <Badge label="Needed" tone="warn" /> : <Badge label="Not needed" tone="good" />}</Td>
+                      <Td><StatusPill status={fc.restrictedSubstancesCheck} /></Td>
+                      <Td><StatusPill status={fc.allergenDeclarationCheck} /></Td>
+                      <Td><StatusPill status={fc.preservativeSystemValidation} /></Td>
+                      <Td className="text-xs">{formula.targetPh}</Td>
+                      <Td><Badge label={fc.microbiologicalRisk} tone={fc.microbiologicalRisk === "Low" ? "good" : fc.microbiologicalRisk === "Medium" ? "warn" : "bad"} /></Td>
+                      <Td>{fc.stabilityTestingRequired ? <Badge label="Required" tone="warn" /> : <Badge label="Not required" tone="good" />}</Td>
+                      <Td>{fc.packagingCompatibilityRequired ? <Badge label="Required" tone="warn" /> : <Badge label="Not required" tone="good" />}</Td>
+                      <Td><StatusPill status={fc.cpsrStatus} /></Td>
+                      <Td><StatusPill status={fc.pifStatus} /></Td>
+                      <Td><StatusPill status={fc.cpnpStatus} /></Td>
+                    </Tr>
+                  );
+                })}
+              </tbody>
+            </Table>
+          </div>
+          <p className="mt-4 text-xs text-ink-soft/70">
+            Full per-ingredient chemistry, manufacturing process and testing plan: see{" "}
+            <a className="underline" href="/formulas">/formulas</a>.
+          </p>
+        </Container>
+      </section>
+
+      <section className="bg-cream py-16 lg:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="CBD / cannabinoid hold"
+            title="One SKU uses hemp seed oil. None use CBD."
+          />
+          <div className="mt-8">
+            <RegulatoryHoldBox />
           </div>
         </Container>
       </section>

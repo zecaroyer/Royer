@@ -34,9 +34,26 @@ therapeutic project. Every future change must keep it that way.
    assessor, and competent Portuguese/EU authorities where needed." — must stay
    in the footer (`src/components/layout/Footer.tsx`) and on `/` via
    `DisclaimerBar`. Do not remove or water it down.
-6. **All cost figures are placeholders.** `src/data/costs.ts` holds modelling
-   assumptions, not real quotes. If you change a number there, it is still a
-   placeholder — do not present it as a real supplier price without a citation.
+6. **All cost figures are placeholders.** `src/data/skuCosts.ts` and
+   `src/data/packaging.ts` hold modelling assumptions, not real quotes. If you
+   change a number there, it is still a placeholder — do not present it as a real
+   supplier price without a citation.
+7. **Formulas are draft concepts, not finished products.** Every formula in
+   `src/data/formulas.ts` needs the standard formulation disclaimer
+   (`FormulationDisclaimerBox`) visible wherever it's shown: review by a
+   qualified cosmetic chemist, stability/microbiological/challenge testing,
+   CPSR, PIF, CPNP, label review, claims substantiation and Responsible Person
+   validation, all still pending.
+8. **Never invent a molecular formula for a complex natural ingredient.**
+   `src/data/ingredientChemistry.ts` gives a molecular formula only to
+   pure/simple compounds (water, glycerin, tocopherol, citric acid, sodium
+   hydroxide, panthenol, bisabolol, squalane). Every botanical oil/extract/
+   emulsifier blend must say "complex natural mixture... no single molecular
+   formula" — adding a fatty-acid profile where useful instead. If you add a new
+   ingredient, follow this same rule.
+9. **Every formula must sum to exactly 100.00% w/w.** `formulaTotalPercentage()`
+   in `src/data/formulas.ts` is the check — re-verify it after editing any
+   ingredient row, including the Aqua/q.s. remainder.
 
 ## Working conventions
 
