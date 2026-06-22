@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Fraunces, Inter } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
@@ -14,13 +14,37 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+// No production domain exists yet — metadataBase is intentionally left unset.
+// Set it (and update the absolute image URLs below) once a real domain is live.
 export const metadata: Metadata = {
   title: {
-    default: "Aloe Lab Portugal — Botanical Cosmetics Laboratory Project",
-    template: "%s · Aloe Lab Portugal",
+    default: "ROYER — Botanical Skincare, Portugal",
+    template: "%s · ROYER",
   },
   description:
-    "Technical and commercial draft for a Portuguese cosmetics laboratory specialising in aloe vera, hemp seed oil and botanical skincare — compliance-first, EU Cosmetics Regulation (EC) 1223/2009 oriented.",
+    "Technical and commercial draft for ROYER, a Portuguese cosmetics laboratory specialising in aloe vera, hemp seed oil and botanical skincare — compliance-first, EU Cosmetics Regulation (EC) 1223/2009 oriented.",
+  applicationName: "ROYER",
+  keywords: ["ROYER", "cosmetics Portugal", "aloe vera skincare", "botanical cosmetics", "hemp seed oil cosmetics"],
+  authors: [{ name: "ROYER" }],
+  openGraph: {
+    type: "website",
+    locale: "en_PT",
+    siteName: "ROYER",
+    title: "ROYER — Botanical Skincare, Portugal",
+    description:
+      "A premium botanical cosmetics laboratory project — aloe vera, hemp seed oil and selected botanicals. Cosmetics only. No medical claims.",
+    images: ["/products/sku-01.jpg"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ROYER — Botanical Skincare, Portugal",
+    description: "A premium botanical cosmetics laboratory project — cosmetics only, compliance-first.",
+    images: ["/products/sku-01.jpg"],
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0d2118",
 };
 
 export default function RootLayout({

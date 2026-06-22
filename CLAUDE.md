@@ -1,6 +1,6 @@
 @AGENTS.md
 
-# Project rules — Aloe Lab Portugal
+# Project rules — ROYER
 
 This is a **cosmetics** project, not a medicinal cannabis, supplement, or
 therapeutic project. Every future change must keep it that way.

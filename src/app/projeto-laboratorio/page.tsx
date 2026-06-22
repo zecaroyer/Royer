@@ -25,7 +25,7 @@ import { DEFAULT_SKU_ASSUMPTIONS, computeSkuEconomics } from "@/data/skuCosts";
 export const metadata: Metadata = {
   title: "Laboratory Project",
   description:
-    "Full technical concept for the Aloe Lab Portugal cosmetics manufacturing laboratory: layout, flows, GMP, equipment, QC, documentation, traceability, cost model and roadmap.",
+    "Full technical concept for the ROYER cosmetics manufacturing laboratory: layout, flows, GMP, equipment, QC, documentation, traceability, cost model and roadmap.",
 };
 
 const TOC = [

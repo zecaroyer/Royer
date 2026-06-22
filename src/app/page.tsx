@@ -27,7 +27,7 @@ export default function HomePage() {
             compliance-first foundation.
           </h1>
           <p className="mt-6 max-w-xl text-balance text-lg leading-relaxed text-cream/75">
-            Aloe Lab Portugal is a technical and commercial project for a cosmetics
+            ROYER is a technical and commercial project for a cosmetics
             manufacturing laboratory in Portugal — combining aloe vera, hemp seed oil
             and selected botanicals into elegant skincare, under strict EU cosmetics
             regulation. No medicines. No medical cannabis. No therapeutic claims.

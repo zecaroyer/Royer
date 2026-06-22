@@ -1,4 +1,4 @@
-# Formulation Dossier — Aloe Lab Portugal
+# Formulation Dossier — ROYER
 
 **All formulas are draft cosmetic formulation concepts only.** They require review
 by a qualified cosmetic chemist, stability testing, microbiological testing,

@@ -12,7 +12,7 @@ import { SKU_ECONOMICS_INPUTS } from "@/data/skuCosts";
 export const metadata: Metadata = {
   title: "Product Catalogue",
   description:
-    "Commercial catalogue of the six Aloe Lab Portugal SKUs — cosmetic positioning, hero ingredient and cosmetic-only claims. Regulatory validation required before any sale.",
+    "Commercial catalogue of the six ROYER SKUs — cosmetic positioning, hero ingredient and cosmetic-only claims. Regulatory validation required before any sale.",
 };
 
 export default function ProdutosPage() {

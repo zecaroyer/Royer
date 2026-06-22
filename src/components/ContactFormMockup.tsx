@@ -2,7 +2,11 @@
 
 import { FormEvent, useState } from "react";
 
-export default function ContactFormMockup() {
+export default function ContactFormMockup({
+  defaultInterest = "dossier",
+}: {
+  defaultInterest?: "dossier" | "meeting" | "partnership" | "regulatory";
+}) {
   const [submitted, setSubmitted] = useState(false);
 
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -38,7 +42,7 @@ export default function ContactFormMockup() {
         <select
           name="interest"
           className="mt-1.5 w-full rounded-lg border border-ink/15 bg-white/70 px-3 py-2.5 text-sm text-ink"
-          defaultValue="dossier"
+          defaultValue={defaultInterest}
         >
           <option value="dossier">Project dossier</option>
           <option value="meeting">Technical meeting</option>

@@ -19,8 +19,9 @@ export type Sku = {
 };
 
 // Product photography note: images under /public/products are AI-generated
-// concept mockups (blank labels, no real packaging produced yet) — used here
-// to visualise positioning only, not as photos of a manufactured product.
+// concept mockups with the ROYER wordmark composited onto the label by the
+// image model — no real packaging has been produced yet. Used here to
+// visualise positioning only, not as photos of a manufactured product.
 
 export const SKUS: Sku[] = [
   {
@@ -36,7 +37,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-01.jpg",
-    imageAlt: "Mockup render of the 50 ml airless pump jar for the Aloe Vera Daily Face Cream concept",
+    imageAlt: "ROYER-branded concept render of the 50 ml airless pump jar for the Aloe Vera Daily Face Cream",
   },
   {
     id: "sku-02",
@@ -51,7 +52,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-02.jpg",
-    imageAlt: "Mockup render of the 30 ml glass dropper bottle for the Rosehip + Jojoba Premium Face Oil concept",
+    imageAlt: "ROYER-branded concept render of the 30 ml glass dropper bottle for the Rosehip + Jojoba Premium Face Oil",
   },
   {
     id: "sku-03",
@@ -66,7 +67,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-03.jpg",
-    imageAlt: "Mockup render of the 200 ml jar for the Aloe + Olive Body Cream concept",
+    imageAlt: "ROYER-branded concept render of the 200 ml jar for the Aloe + Olive Body Cream",
   },
   {
     id: "sku-04",
@@ -81,7 +82,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-04.jpg",
-    imageAlt: "Mockup render of the 75 ml tube for the Coconut + Aloe Hand Cream concept",
+    imageAlt: "ROYER-branded concept render of the 75 ml tube for the Coconut + Aloe Hand Cream",
   },
   {
     id: "sku-05",
@@ -96,7 +97,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-05.jpg",
-    imageAlt: "Mockup render of the 50 ml tin for the Hemp Seed + Calendula Botanical Balm concept",
+    imageAlt: "ROYER-branded concept render of the 50 ml tin for the Hemp Seed + Calendula Botanical Balm",
   },
   {
     id: "sku-06",
@@ -111,7 +112,7 @@ export const SKUS: Sku[] = [
     containsCannabinoid: false,
     complianceStatus: "draft",
     imagePath: "/products/sku-06.jpg",
-    imageAlt: "Mockup render of the 100 ml jar for the Aloe Botanical Gel-Cream concept",
+    imageAlt: "ROYER-branded concept render of the 100 ml jar for the Aloe Botanical Gel-Cream",
   },
 ];
 

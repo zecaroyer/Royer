@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
-            <p className="font-display text-xl text-cream">
-              ALOE <span className="text-gold-light">LAB</span> PORTUGAL
+            <p className="font-display text-xl tracking-[0.12em] text-cream">
+              ROYER
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">
               Botanical cosmetics laboratory project — aloe vera, hemp seed oil and
@@ -59,7 +59,7 @@ export default function Footer() {
         </div>
 
         <p className="mt-8 text-xs text-cream/40">
-          © {new Date().getFullYear()} Aloe Lab Portugal — Project draft for internal,
+          © {new Date().getFullYear()} ROYER — Project draft for internal,
           investor and regulatory review purposes only.
         </p>
       </div>

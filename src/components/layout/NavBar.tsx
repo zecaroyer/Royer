@@ -15,10 +15,10 @@ export default function NavBar() {
         <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
           <LeafMark />
           <span className="flex flex-col leading-tight">
-            <span className="font-display text-lg tracking-wide text-cream">
-              ALOE&nbsp;<span className="text-gold-light">LAB</span>
+            <span className="font-display text-lg tracking-[0.18em] text-cream">
+              ROYER
             </span>
-            <span className="section-eyebrow text-[0.6rem] text-cream/60">Portugal</span>
+            <span className="section-eyebrow text-[0.6rem] text-gold-light/80">Portugal</span>
           </span>
         </Link>
 

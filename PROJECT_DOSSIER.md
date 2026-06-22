@@ -1,4 +1,4 @@
-# Project Dossier — Aloe Lab Portugal
+# Project Dossier — ROYER
 
 **Status: technical and commercial draft.** This document is not legal advice.
 Final validation of every regulatory, safety, and labelling matter described here
@@ -10,7 +10,7 @@ EU CPNP). Nothing in this dossier should be relied upon as a compliance guarante
 
 ## 0. Positioning statement
 
-Aloe Lab Portugal is a project to design, build, and operate a cosmetics
+ROYER is a project to design, build, and operate a cosmetics
 manufacturing laboratory in Portugal producing skincare creams and lotions based on
 aloe vera, hemp seed oil, and a small number of well-characterised botanical
 extracts.

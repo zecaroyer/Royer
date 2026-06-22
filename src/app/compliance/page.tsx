@@ -15,7 +15,7 @@ import { FORMULAS } from "@/data/formulas";
 export const metadata: Metadata = {
   title: "Compliance Dashboard",
   description:
-    "Status of every cosmetics regulatory module for the Aloe Lab Portugal project: PIF, CPSR, CPNP, Responsible Person, GMP/ISO 22716, labels, claims, batch records, suppliers, complaints, recalls and CAPA.",
+    "Status of every cosmetics regulatory module for the ROYER project: PIF, CPSR, CPNP, Responsible Person, GMP/ISO 22716, labels, claims, batch records, suppliers, complaints, recalls and CAPA.",
 };
 
 const STATUS_LEGEND: ComplianceStatus[] = ["draft", "needs-review", "ready-for-validation", "approved"];
