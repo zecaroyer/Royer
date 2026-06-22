@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-deep: #0d2118;
+  --color-deep-2: #122d20;
+  --color-green: #1c3f2d;
+  --color-green-light: #2f5a42;
+  --color-green-pale: #e8efe6;
+  --color-cream: #faf6ec;
+  --color-cream-2: #f3ecd9;
+  --color-gold: #b08d3f;
+  --color-gold-light: #d8bb6f;
+  --color-gold-soft: #e9d9ac;
+  --color-ink: #15241c;
+  --color-ink-soft: #3c4d44;
+
+  --background: var(--color-cream);
+  --foreground: var(--color-ink);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-deep: var(--color-deep);
+  --color-deep-2: var(--color-deep-2);
+  --color-lab-green: var(--color-green);
+  --color-lab-green-light: var(--color-green-light);
+  --color-green-pale: var(--color-green-pale);
+  --color-cream: var(--color-cream);
+  --color-cream-2: var(--color-cream-2);
+  --color-gold: var(--color-gold);
+  --color-gold-light: var(--color-gold-light);
+  --color-gold-soft: var(--color-gold-soft);
+  --color-ink: var(--color-ink);
+  --color-ink-soft: var(--color-ink-soft);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  border-color: rgba(176, 141, 63, 0.18);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.bg-botanical-dark {
+  background-color: var(--color-deep);
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(216, 187, 111, 0.10), transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(47, 90, 66, 0.45), transparent 45%);
+}
+
+.glass-card {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015));
+  border: 1px solid rgba(216, 187, 111, 0.22);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, 0.55);
+}
+
+.glass-card-light {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.85), rgba(250, 246, 236, 0.55));
+  border: 1px solid rgba(176, 141, 63, 0.22);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 14px 34px -22px rgba(13, 33, 24, 0.35);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(176, 141, 63, 0.55), transparent);
+}
+
+.section-eyebrow {
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+::selection {
+  background: rgba(176, 141, 63, 0.35);
+}
+
+.leaf-line {
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.1;
 }

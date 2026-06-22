@@ -1,0 +1,68 @@
+import Link from "next/link";
+import { NAV_ITEMS } from "@/lib/nav";
+
+export default function Footer() {
+  return (
+    <footer className="border-t border-gold/20 bg-deep text-cream/70">
+      <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
+        <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <p className="font-display text-xl text-cream">
+              ALOE <span className="text-gold-light">LAB</span> PORTUGAL
+            </p>
+            <p className="mt-3 max-w-sm text-sm leading-relaxed">
+              Botanical cosmetics laboratory project — aloe vera, hemp seed oil and
+              plant-derived skincare. Positioned strictly as cosmetics under EU and
+              Portuguese law. No medicines, no medical cannabis, no supplements, no
+              therapeutic claims.
+            </p>
+          </div>
+
+          <div>
+            <p className="section-eyebrow text-gold-light">Navegação</p>
+            <ul className="mt-3 space-y-2 text-sm">
+              {NAV_ITEMS.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-cream">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <p className="section-eyebrow text-gold-light">Referências regulatórias</p>
+            <ul className="mt-3 space-y-2 text-sm">
+              <li>EU Cosmetics Regulation (EC) 1223/2009</li>
+              <li>ISO 22716:2007 / EN ISO 22716</li>
+              <li>CPNP · PIF · CPSR</li>
+              <li>INFARMED (Portugal)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="divider-gold my-10" />
+
+        <div className="rounded-xl border border-gold/25 bg-white/5 p-5 text-xs leading-relaxed text-cream/65">
+          <p className="font-semibold text-gold-light">Legal notice</p>
+          <p className="mt-2">
+            This is a technical and commercial draft. It is not legal advice. Final
+            validation must be performed by a qualified regulatory consultant, safety
+            assessor, and competent Portuguese/EU authorities where needed. CBD or other
+            cannabinoids naturally derived from cannabis extracts, tinctures, resin,
+            flowers or leaves may be prohibited in Portuguese cosmetic products and
+            require dedicated legal and regulatory validation before any use is
+            considered. Nothing on this site constitutes a medical, therapeutic, or
+            supplement claim.
+          </p>
+        </div>
+
+        <p className="mt-8 text-xs text-cream/40">
+          © {new Date().getFullYear()} Aloe Lab Portugal — Project draft for internal,
+          investor and regulatory review purposes only.
+        </p>
+      </div>
+    </footer>
+  );
+}

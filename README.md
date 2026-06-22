@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aloe Lab Portugal — Botanical Cosmetics Laboratory Project
 
-## Getting Started
+A local Next.js project presenting a technical and commercial draft for a Portuguese
+cosmetics manufacturing laboratory built around aloe vera, hemp seed oil, and
+selected botanicals. The project is positioned strictly as **cosmetics**, under EU
+and Portuguese cosmetics law — never as medicine, medical cannabis, a supplement, or
+a therapeutic treatment.
 
-First, run the development server:
+See [`PROJECT_DOSSIER.md`](./PROJECT_DOSSIER.md) for the full technical/regulatory
+plan and [`CLAUDE.md`](./CLAUDE.md) for the project rules that future AI-assisted
+sessions on this repo should follow.
+
+## Compliance disclaimer
+
+> This is a technical and commercial draft. It is not legal advice. Final validation
+> must be performed by a qualified regulatory consultant, safety assessor, and
+> competent Portuguese/EU authorities where needed.
+
+CBD or other cannabinoids **naturally derived from cannabis extracts, tinctures,
+resin, flowers or leaves may be prohibited in Portuguese cosmetic products** and
+require dedicated legal/regulatory validation before any use is considered. Hemp
+seed oil (*Cannabis sativa* seed oil) is treated throughout this project as the
+safer starting ingredient route, subject to supplier and compliance verification.
+No page on this site makes a medical, therapeutic, or supplement claim — see
+`/compliance` for the live tracking of every regulatory module.
+
+## Install
+
+```bash
+npm install
+```
+
+## Run (development)
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build & start (production)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Lint
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Project structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/
+    page.tsx                 # / — landing page
+    projeto-laboratorio/     # /projeto-laboratorio — full technical project
+    compliance/              # /compliance — compliance dashboard
+    custos/                  # /custos — cost calculator
+    rastreabilidade/         # /rastreabilidade — traceability system
+    layout.tsx               # root layout: fonts, NavBar, Footer
+    globals.css              # design tokens (palette, fonts, glass-card utilities)
+  components/
+    layout/                  # NavBar, Footer
+    ui/                      # GlassCard, SectionHeading, StatusPill, Table,
+                              # FlowDiagram, BarChart, Accordion, Button, etc.
+    ContactFormMockup.tsx
+    BotanicalArt.tsx
+  data/                      # typed content: costs, compliance matrix, equipment,
+                              # risks, SOPs, lab zones, flows, roadmap, traceability,
+                              # entity/data-model definitions
+  lib/
+    nav.ts                   # shared navigation items
+PROJECT_DOSSIER.md           # full technical & regulatory dossier (English)
+CLAUDE.md                    # compliance-first project rules for AI sessions
+```
 
-## Deploy on Vercel
+All page content is driven by typed data files under `src/data/`. There is no
+backend yet — `src/data/entities.ts` documents the data model as it is intended to
+be implemented later (PostgreSQL via Prisma), and the cost calculator on `/custos`
+runs entirely client-side against editable assumptions in `src/data/costs.ts`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment notes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- The app is a static-friendly Next.js App Router project (`next build` currently
+  prerenders every route as static content — no server-only APIs are used).
+- Any standard Next.js hosting target works (Vercel, a Node server via
+  `npm run start`, or a static export if no future feature requires the Node
+  runtime). Re-check `next build` output if you add dynamic routes or server
+  actions later.
+- `next.config.ts` pins `turbopack.root` to this project directory — keep that if
+  you move or nest this project inside another workspace with its own lockfile.
+- No environment variables or secrets are required for the current feature set.
+  The contact form on `/` is a front-end mockup only; wire it to a real endpoint
+  (email service, CRM, API route) before relying on it commercially.
+
+## Next steps
+
+1. Engage a qualified regulatory consultant and cosmetic safety assessor — start
+   from the gaps tracked on `/compliance` and the validation checklist on
+   `/projeto-laboratorio`.
+2. Obtain a written legal opinion on the CBD/cannabinoid ingredient question before
+   any such ingredient is sourced, tested, or mentioned beyond this draft.
+3. Replace every placeholder figure in `src/data/costs.ts` with real, dated supplier
+   quotations and labour costs.
+4. Once a backend is needed, implement the schema described in `src/data/entities.ts`
+   (PostgreSQL + Prisma is the assumed target) and wire the contact form and
+   compliance/traceability dashboards to real data.
+5. Re-run `npm run lint` and `npm run build` after any change before deploying.
