@@ -14,7 +14,13 @@ export type Sku = {
   usesHempSeedOil: boolean;
   containsCannabinoid: boolean;
   complianceStatus: ComplianceStatus;
+  imagePath: string;
+  imageAlt: string;
 };
+
+// Product photography note: images under /public/products are AI-generated
+// concept mockups (blank labels, no real packaging produced yet) — used here
+// to visualise positioning only, not as photos of a manufactured product.
 
 export const SKUS: Sku[] = [
   {
@@ -29,6 +35,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: false,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-01.jpg",
+    imageAlt: "Mockup render of the 50 ml airless pump jar for the Aloe Vera Daily Face Cream concept",
   },
   {
     id: "sku-02",
@@ -42,6 +50,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: false,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-02.jpg",
+    imageAlt: "Mockup render of the 30 ml glass dropper bottle for the Rosehip + Jojoba Premium Face Oil concept",
   },
   {
     id: "sku-03",
@@ -55,6 +65,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: false,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-03.jpg",
+    imageAlt: "Mockup render of the 200 ml jar for the Aloe + Olive Body Cream concept",
   },
   {
     id: "sku-04",
@@ -68,6 +80,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: false,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-04.jpg",
+    imageAlt: "Mockup render of the 75 ml tube for the Coconut + Aloe Hand Cream concept",
   },
   {
     id: "sku-05",
@@ -81,6 +95,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: true,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-05.jpg",
+    imageAlt: "Mockup render of the 50 ml tin for the Hemp Seed + Calendula Botanical Balm concept",
   },
   {
     id: "sku-06",
@@ -94,6 +110,8 @@ export const SKUS: Sku[] = [
     usesHempSeedOil: false,
     containsCannabinoid: false,
     complianceStatus: "draft",
+    imagePath: "/products/sku-06.jpg",
+    imageAlt: "Mockup render of the 100 ml jar for the Aloe Botanical Gel-Cream concept",
   },
 ];
 

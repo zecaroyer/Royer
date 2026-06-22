@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import GlassCard from "@/components/ui/GlassCard";
@@ -89,10 +90,15 @@ export default function FormulasPage() {
           >
             <Container>
               <div className="flex flex-wrap items-start justify-between gap-4">
-                <div>
-                  <p className="section-eyebrow text-gold">{sku.code} · {formula.formulaCode}</p>
-                  <h2 className="mt-2 font-display text-3xl text-ink">{sku.name}</h2>
-                  <p className="mt-2 max-w-2xl text-ink-soft">{sku.positioning}</p>
+                <div className="flex gap-4">
+                  <div className="relative h-20 w-20 flex-shrink-0 overflow-hidden rounded-xl border border-gold/20 bg-cream-2 sm:h-24 sm:w-24">
+                    <Image src={sku.imagePath} alt={sku.imageAlt} fill sizes="96px" className="object-cover" />
+                  </div>
+                  <div>
+                    <p className="section-eyebrow text-gold">{sku.code} · {formula.formulaCode}</p>
+                    <h2 className="mt-2 font-display text-3xl text-ink">{sku.name}</h2>
+                    <p className="mt-2 max-w-2xl text-ink-soft">{sku.positioning}</p>
+                  </div>
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   <StatusPill status={formula.status} />

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
@@ -39,6 +40,18 @@ export default function ProdutosPage() {
               const econInput = SKU_ECONOMICS_INPUTS.find((e) => e.skuId === sku.id)!;
               return (
                 <GlassCard key={sku.id} light className="flex flex-col">
+                  <div className="relative -mx-6 -mt-6 mb-4 aspect-square overflow-hidden rounded-t-2xl bg-cream-2">
+                    <Image
+                      src={sku.imagePath}
+                      alt={sku.imageAlt}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                    <span className="absolute bottom-2 right-2 rounded-full bg-deep/80 px-2.5 py-1 text-[0.6rem] font-medium text-cream/90 backdrop-blur-sm">
+                      AI concept render — not final packaging
+                    </span>
+                  </div>
                   <p className="section-eyebrow text-gold">{sku.code} · {sku.format}</p>
                   <h3 className="mt-3 font-display text-xl text-ink">{sku.name}</h3>
                   <p className="mt-2 text-sm text-ink-soft">{sku.positioning}</p>
