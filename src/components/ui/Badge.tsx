@@ -12,7 +12,7 @@ const TONE_CLASS: Record<BadgeTone, string> = {
 export default function Badge({ label, tone = "neutral" }: { label: string; tone?: BadgeTone }) {
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium ${TONE_CLASS[tone]}`}
+      className={`label-tag inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[0.65rem] ${TONE_CLASS[tone]}`}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" />
       {label}

@@ -1,13 +1,16 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { NAV_ITEMS } from "@/lib/nav";
+import { NAV_ITEMS, PUBLIC_NAV_ITEMS } from "@/lib/nav";
 
-export default function NavBar() {
+export default function NavBar({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [open, setOpen] = useState(false);
+  const [loggingOut, setLoggingOut] = useState(false);
+  const items = isAdmin ? NAV_ITEMS : PUBLIC_NAV_ITEMS;
 
   useEffect(() => {
     if (!open) return;
@@ -17,6 +20,14 @@ export default function NavBar() {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [open]);
+
+  async function handleLogout() {
+    setLoggingOut(true);
+    await fetch("/api/admin-logout", { method: "POST" });
+    setOpen(false);
+    router.push("/");
+    router.refresh();
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-deep/95 backdrop-blur-md">
@@ -32,7 +43,7 @@ export default function NavBar() {
         </Link>
 
         <nav className="hidden items-center gap-4 xl:flex" aria-label="Primary">
-          {NAV_ITEMS.map((item) => {
+          {items.map((item) => {
             const active = pathname === item.href;
             return (
               <Link
@@ -49,13 +60,24 @@ export default function NavBar() {
           })}
         </nav>
 
-        <div className="hidden xl:block">
-          <Link
-            href="/laboratory"
-            className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20"
-          >
-            Request project dossier
-          </Link>
+        <div className="hidden items-center gap-3 xl:flex">
+          {isAdmin ? (
+            <button
+              type="button"
+              onClick={handleLogout}
+              disabled={loggingOut}
+              className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20 disabled:opacity-60"
+            >
+              {loggingOut ? "Logging out…" : "Log out"}
+            </button>
+          ) : (
+            <Link
+              href="/admin/login"
+              className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20"
+            >
+              Data room login
+            </Link>
+          )}
         </div>
 
         <button
@@ -73,7 +95,7 @@ export default function NavBar() {
       {open && (
         <nav className="border-t border-gold/15 bg-deep px-6 py-4 xl:hidden" aria-label="Mobile">
           <ul className="flex flex-col">
-            {NAV_ITEMS.map((item) => {
+            {items.map((item) => {
               const active = pathname === item.href;
               return (
                 <li key={item.href}>
@@ -88,6 +110,26 @@ export default function NavBar() {
                 </li>
               );
             })}
+            <li className="mt-2 border-t border-gold/15 pt-3">
+              {isAdmin ? (
+                <button
+                  type="button"
+                  onClick={handleLogout}
+                  disabled={loggingOut}
+                  className="block min-h-[44px] py-2.5 text-left text-sm font-medium text-gold-light disabled:opacity-60"
+                >
+                  {loggingOut ? "Logging out…" : "Log out"}
+                </button>
+              ) : (
+                <Link
+                  href="/admin/login"
+                  onClick={() => setOpen(false)}
+                  className="block min-h-[44px] py-2.5 text-sm font-medium text-gold-light"
+                >
+                  Data room login
+                </Link>
+              )}
+            </li>
           </ul>
         </nav>
       )}

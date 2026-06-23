@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { NAV_ITEMS } from "@/lib/nav";
+import { PUBLIC_NAV_ITEMS, PRIVATE_NAV_ITEMS } from "@/lib/nav";
 
-export default function Footer() {
+export default function Footer({ isAdmin }: { isAdmin: boolean }) {
   return (
     <footer className="border-t border-gold/20 bg-deep text-cream/70">
       <div className="mx-auto max-w-7xl px-6 py-14 lg:px-10">
@@ -21,23 +21,40 @@ export default function Footer() {
           <div>
             <p className="section-eyebrow text-gold-light">Navigation</p>
             <ul className="mt-3 space-y-2 text-sm">
-              {NAV_ITEMS.map((item) => (
+              {PUBLIC_NAV_ITEMS.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
                     {item.label}
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link href="/sops" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
-                  Manufacturing SOPs
-                </Link>
-              </li>
-              <li>
-                <Link href="/site-map" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
-                  Site Map
-                </Link>
-              </li>
+              {isAdmin ? (
+                <>
+                  {PRIVATE_NAV_ITEMS.map((item) => (
+                    <li key={item.href}>
+                      <Link href={item.href} className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                        {item.label}
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link href="/sops" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                      Manufacturing SOPs
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/site-map" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                      Site Map
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <li>
+                  <Link href="/admin/login" className="border-b border-transparent text-gold-light transition-colors hover:border-gold/40 hover:text-cream">
+                    Data room login
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 

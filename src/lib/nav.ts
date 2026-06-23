@@ -3,9 +3,12 @@ export type NavItem = {
   label: string;
 };
 
-export const NAV_ITEMS: NavItem[] = [
+export const PUBLIC_NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
+];
+
+export const PRIVATE_NAV_ITEMS: NavItem[] = [
   { href: "/formulas", label: "Formulas" },
   { href: "/investors", label: "Investors" },
   { href: "/laboratory", label: "Laboratory Project" },
@@ -13,3 +16,5 @@ export const NAV_ITEMS: NavItem[] = [
   { href: "/costs", label: "Costs" },
   { href: "/traceability", label: "Traceability" },
 ];
+
+export const NAV_ITEMS: NavItem[] = [...PUBLIC_NAV_ITEMS, ...PRIVATE_NAV_ITEMS];

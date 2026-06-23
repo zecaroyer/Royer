@@ -69,6 +69,19 @@ therapeutic project. Every future change must keep it that way.
     step-by-step procedure is always read from `formula.manufacturingProcess`
     in `src/data/formulas.ts`. Don't hand-copy steps into the SOP file — it
     will drift out of sync with the approved formula.
+13. **Private/public content split is enforced in `src/proxy.ts`, not by
+    convention.** `/` and `/products` are public. `/formulas`, `/investors`,
+    `/laboratory`, `/compliance`, `/costs`, `/traceability`, `/sops`,
+    `/site-map`, and the four root dossiers mirrored into `public/` are
+    gated behind the admin login at `/admin/login`. Credentials and the
+    session-cookie check live in `src/lib/adminAuth.ts` (env-var overridable;
+    defaults are the literal `admin@royer.com` / `Royer2026` pair). This is a
+    draft-stage access gate, not production authentication — there is still
+    no backend/database, so the only state is one shared, unsigned session
+    cookie set by a Route Handler. Never describe it as real security in copy
+    or to investors. If a page's visibility changes, update
+    `PUBLIC_NAV_ITEMS`/`PRIVATE_NAV_ITEMS` in `src/lib/nav.ts` and the
+    matcher list in `src/proxy.ts` together — they are not auto-synced.
 
 ## Working conventions
 
@@ -81,12 +94,16 @@ therapeutic project. Every future change must keep it that way.
   / `bg-deep-2` sections, needs a `light`/dark-aware variant — verify contrast
   on dark backgrounds before shipping (this project has previously shipped a
   contrast bug here; check screenshots, don't assume).
-- No backend exists yet. `src/data/entities.ts` is the intended PostgreSQL/Prisma
-  data model — keep it in sync with any new dashboard or traceability feature
-  before treating it as implemented.
+- No backend/database exists yet beyond the admin-gate Route Handlers
+  (`src/app/api/admin-login`, `src/app/api/admin-logout`, see rule 13).
+  `src/data/entities.ts` is the intended PostgreSQL/Prisma data model — keep
+  it in sync with any new dashboard or traceability feature before treating
+  it as implemented.
 - This version of Next.js may differ from training-data assumptions — read
   `node_modules/next/dist/docs/` for any unfamiliar API before using it (see
-  `AGENTS.md`).
+  `AGENTS.md`). For example, `middleware.ts` was renamed to `proxy.ts`
+  (exported function `proxy`) in this version — that's what gates private
+  routes, not a `middleware.ts` file.
 - Before declaring a UI change done, run `npm run lint` and `npm run build`, and
   visually check the affected routes (a headless-browser screenshot check is the
   minimum bar — this project has no automated visual regression tests yet).

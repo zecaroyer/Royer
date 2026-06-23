@@ -35,7 +35,7 @@ export function StatusPill({
   const className = light ? STATUS_CLASS_DARK[status] : STATUS_CLASS[status];
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${className}`}
+      className={`label-tag inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[0.65rem] ${className}`}
     >
       <span className="h-1.5 w-1.5 rounded-full bg-current" />
       {STATUS_LABEL[status]}

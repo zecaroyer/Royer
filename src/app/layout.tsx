@@ -3,6 +3,7 @@ import { Fraunces, Inter } from "next/font/google";
 import NavBar from "@/components/layout/NavBar";
 import Footer from "@/components/layout/Footer";
 import ScrollToTop from "@/components/ScrollToTop";
+import { isAdminSession } from "@/lib/adminAuth";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -58,11 +59,12 @@ const organizationJsonLd = {
   areaServed: "EU",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const isAdmin = await isAdminSession();
   return (
     <html lang="en" className={`${fraunces.variable} ${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-cream text-ink antialiased">
@@ -76,9 +78,9 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <NavBar />
+        <NavBar isAdmin={isAdmin} />
         <main id="main-content" className="flex-1">{children}</main>
-        <Footer />
+        <Footer isAdmin={isAdmin} />
         <ScrollToTop />
       </body>
     </html>

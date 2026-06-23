@@ -30,6 +30,21 @@ safer starting ingredient route, subject to supplier and compliance verification
 No page on this site makes a medical, therapeutic, or supplement claim — see
 `/compliance` for the live tracking of every regulatory module.
 
+## Public vs. private content
+
+Only `/` and `/products` are public. Everything else — `/formulas`,
+`/investors`, `/laboratory`, `/compliance`, `/costs`, `/traceability`,
+`/sops`, `/site-map`, and the four root dossiers — sits behind a login at
+`/admin/login` (default credentials `admin@royer.com` / `Royer2026`,
+overridable via the `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_SESSION_TOKEN`
+env vars). This is a **draft-stage access gate**, not a production
+authentication system: there's still no backend/database, so it's a single
+shared password checked in a Route Handler, behind one unsigned session
+cookie, with no per-user accounts, rate limiting, or audit log. It keeps
+casual visitors off internal/financial pages — it is not a security boundary
+for anything genuinely sensitive. See `src/proxy.ts` and
+`src/lib/adminAuth.ts`.
+
 ## Install
 
 ```bash
@@ -72,12 +87,17 @@ src/
     traceability/            # /traceability — traceability system
     sops/                    # /sops — per-SKU manufacturing SOPs
     site-map/                # /site-map — human-readable site map
+    admin/login/             # /admin/login — data-room login page (public)
+    api/admin-login/         # POST: verifies credentials, sets session cookie
+    api/admin-logout/        # POST: clears session cookie
     layout.tsx               # root layout: fonts, NavBar, Footer, JSON-LD, skip link
     globals.css              # design tokens, focus/scroll/print/reduced-motion styles
     not-found.tsx, error.tsx # branded 404 and error boundary
     sitemap.ts, manifest.ts, icon.svg  # SEO/PWA metadata (Next.js file conventions)
+  proxy.ts                   # gates private routes/dossiers, redirects to /admin/login
   components/
-    layout/                  # NavBar, Footer
+    layout/                  # NavBar, Footer (both auth-aware via an isAdmin prop)
+    admin/                   # LoginForm (client component)
     ui/                      # GlassCard, SectionHeading, StatusPill, Badge, Table,
                               # FlowDiagram, BarChart, Accordion, Button, Breadcrumb,
                               # Tooltip, TldrCallout, CopyLinkButton,
@@ -93,7 +113,8 @@ src/
                               # formulas.ts, ingredientChemistry.ts, packaging.ts,
                               # testingPlan.ts, skuCosts.ts, manufacturingSops.ts
   lib/
-    nav.ts                   # shared navigation items
+    nav.ts                   # PUBLIC_NAV_ITEMS / PRIVATE_NAV_ITEMS
+    adminAuth.ts              # server-only credential check + session-cookie helpers
 PROJECT_DOSSIER.md           # full technical & regulatory dossier (English)
 FORMULATION_DOSSIER.md       # six SKU formulas, chemistry, process, cost model
 SOP_MANUFACTURING.md         # per-SKU manufacturing SOPs (purpose, scope, IPC, safety)
@@ -110,15 +131,17 @@ and `src/data/packaging.ts`.
 
 ## Deployment notes
 
-- The app is a static-friendly Next.js App Router project (`next build` currently
-  prerenders every route as static content — no server-only APIs are used).
-- Any standard Next.js hosting target works (Vercel, a Node server via
-  `npm run start`, or a static export if no future feature requires the Node
-  runtime). Re-check `next build` output if you add dynamic routes or server
-  actions later.
+- The app is no longer fully static: the root layout reads the admin session
+  cookie via `cookies()` to decide what NavBar/Footer render, which opts every
+  route into dynamic (per-request) rendering, and `src/proxy.ts` gates the
+  private routes server-side. Needs a Node-capable host (Vercel, a Node server
+  via `npm run start`, or Netlify's Next.js runtime) — a static export will not
+  work for the login gate.
 - `next.config.ts` pins `turbopack.root` to this project directory — keep that if
   you move or nest this project inside another workspace with its own lockfile.
-- No environment variables or secrets are required for the current feature set.
+- Optional env vars: `ADMIN_EMAIL`, `ADMIN_PASSWORD`, `ADMIN_SESSION_TOKEN`
+  override the defaults in `src/lib/adminAuth.ts` — set these on the hosting
+  platform before relying on the login for anything beyond a draft-stage gate.
   The contact form on `/` is a front-end mockup only; wire it to a real endpoint
   (email service, CRM, API route) before relying on it commercially.
 
