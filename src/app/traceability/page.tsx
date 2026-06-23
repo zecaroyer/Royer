@@ -90,7 +90,7 @@ export default function TraceabilityPage() {
       </section>
 
       {/* Visual flow */}
-      <section className="bg-deep-2 py-16 text-cream lg:py-20">
+      <section className="pattern-gold-lattice bg-deep-2 py-16 text-cream lg:py-20">
         <Container>
           <SectionHeading
             light

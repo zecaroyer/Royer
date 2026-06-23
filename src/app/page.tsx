@@ -112,7 +112,7 @@ export default function HomePage() {
       <DisclaimerBar />
 
       {/* Stats */}
-      <section id="stats" className="bg-deep-2 py-14 text-cream">
+      <section id="stats" className="pattern-gold-lattice bg-deep-2 py-14 text-cream">
         <Container>
           <StatsCounter
             stats={[
@@ -325,7 +325,7 @@ export default function HomePage() {
       </section>
 
       {/* Traceability by batch */}
-      <section id="traceability" className="bg-deep-2 py-20 text-cream lg:py-28">
+      <section id="traceability" className="pattern-gold-lattice bg-deep-2 py-20 text-cream lg:py-28">
         <Container>
           <div className="divider-gold mb-10" />
           <SectionHeading

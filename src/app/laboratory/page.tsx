@@ -189,7 +189,7 @@ export default function LaboratoryPage() {
       </section>
 
       {/* Process flows */}
-      <section id="flows" className="bg-deep-2 py-16 text-cream lg:py-20">
+      <section id="flows" className="pattern-gold-lattice bg-deep-2 py-16 text-cream lg:py-20">
         <Container>
           <SectionHeading
             light
