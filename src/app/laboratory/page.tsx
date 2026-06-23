@@ -9,6 +9,7 @@ import Breadcrumb from "@/components/ui/Breadcrumb";
 import TldrCallout from "@/components/ui/TldrCallout";
 import ReadingProgress from "@/components/ReadingProgress";
 import ScrollSpyNav from "@/components/ScrollSpyNav";
+import DocumentationTable from "@/components/DocumentationTable";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
 import { LAB_ZONES } from "@/data/labZones";
 import {
@@ -305,24 +306,7 @@ export default function LaboratoryPage() {
             description="Each SOP is a placeholder title and purpose at this stage — full procedures require drafting and QA approval before use."
           />
           <div className="mt-10">
-            <Table>
-              <THead>
-                <Th>Code</Th>
-                <Th>Title</Th>
-                <Th>Area</Th>
-                <Th>Purpose</Th>
-              </THead>
-              <tbody>
-                {SOP_LIST.map((s) => (
-                  <Tr key={s.code}>
-                    <Td className="font-mono text-xs text-gold">{s.code}</Td>
-                    <Td className="font-medium text-ink">{s.title}</Td>
-                    <Td>{s.area}</Td>
-                    <Td>{s.purpose}</Td>
-                  </Tr>
-                ))}
-              </tbody>
-            </Table>
+            <DocumentationTable sops={SOP_LIST} />
           </div>
           <Button href="/sops" variant="ghost" className="mt-8">
             Open the six per-SKU manufacturing SOPs →
