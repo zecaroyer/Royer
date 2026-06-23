@@ -13,19 +13,35 @@ import RevealOnScroll from "@/components/RevealOnScroll";
 import StatsCounter from "@/components/StatsCounter";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import Accordion from "@/components/ui/Accordion";
+import ReadingProgress from "@/components/ReadingProgress";
+import ScrollSpyNav from "@/components/ScrollSpyNav";
 import { PRODUCT_FAMILIES, POSITIONING_NOTES } from "@/data/productFamilies";
 import { TRACEABILITY_FLOW } from "@/data/traceability";
 import { HOME_FAQ } from "@/data/faq";
 
+const TOC = [
+  { id: "stats", label: "At a glance" },
+  { id: "concept", label: "Concept" },
+  { id: "product-families", label: "Product families" },
+  { id: "why-aloe", label: "Why aloe vera" },
+  { id: "compliance-approach", label: "Compliance" },
+  { id: "traceability", label: "Traceability" },
+  { id: "production", label: "Made in Portugal" },
+  { id: "dossiers", label: "Dossiers" },
+  { id: "faq", label: "FAQ" },
+  { id: "contact", label: "Contact" },
+];
+
 export default function HomePage() {
   return (
     <>
+      <ReadingProgress />
       {/* Hero */}
       <section className="relative overflow-hidden bg-botanical-dark text-cream">
         <BotanicalArt className="pointer-events-none absolute -right-24 top-0 h-[140%] w-[480px] text-gold/10" />
         <Container className="relative py-24 lg:py-32">
           <p className="section-eyebrow text-gold-light">
-            Laboratório de Cosmética Botânica · Portugal
+            Botanical Cosmetics Laboratory · Portugal
           </p>
           <h1 className="mt-5 max-w-3xl text-balance font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
             A premium botanical skincare laboratory, built on aloe vera and a
@@ -46,7 +62,7 @@ export default function HomePage() {
               Book technical meeting
             </Button>
             <Link
-              href="/projeto-laboratorio"
+              href="/laboratory"
               className="text-sm font-medium text-cream/80 underline-offset-4 hover:text-cream hover:underline"
             >
               See laboratory project →
@@ -76,6 +92,8 @@ export default function HomePage() {
             <span>Cosmetics only — no medical claims</span>
           </div>
 
+          <ScrollSpyNav items={TOC} />
+
           <div className="mt-10 flex justify-center sm:hidden lg:flex lg:justify-start" aria-hidden="true">
             <a href="#stats" className="animate-bounce text-cream/40 hover:text-cream/70">
               <svg width="22" height="22" viewBox="0 0 24 24">
@@ -103,7 +121,7 @@ export default function HomePage() {
       </section>
 
       {/* Concept */}
-      <section className="bg-cream py-20 lg:py-28">
+      <section id="concept" className="bg-cream py-20 lg:py-28">
         <Container>
           <RevealOnScroll className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <SectionHeading
@@ -122,7 +140,7 @@ export default function HomePage() {
       </section>
 
       {/* Product families */}
-      <section className="bg-cream-2 py-20 lg:py-28">
+      <section id="product-families" className="bg-cream-2 py-20 lg:py-28">
         <Container>
           <RevealOnScroll>
           <SectionHeading
@@ -159,7 +177,7 @@ export default function HomePage() {
               </li>
             ))}
           </ul>
-          <Button href="/produtos" variant="ghost" className="mt-8">
+          <Button href="/products" variant="ghost" className="mt-8">
             See the full 6-SKU catalogue →
           </Button>
           </RevealOnScroll>
@@ -167,7 +185,7 @@ export default function HomePage() {
       </section>
 
       {/* Why aloe vera and botanicals */}
-      <section className="bg-botanical-dark py-20 text-cream lg:py-28">
+      <section id="why-aloe" className="bg-botanical-dark py-20 text-cream lg:py-28">
         <Container>
           <RevealOnScroll>
           <SectionHeading
@@ -204,7 +222,7 @@ export default function HomePage() {
       </section>
 
       {/* Compliance-first approach */}
-      <section className="bg-cream py-20 lg:py-28">
+      <section id="compliance-approach" className="bg-cream py-20 lg:py-28">
         <Container>
           <SectionHeading
             eyebrow="Compliance-first approach"
@@ -236,7 +254,7 @@ export default function HomePage() {
       </section>
 
       {/* Traceability by batch */}
-      <section className="bg-deep-2 py-20 text-cream lg:py-28">
+      <section id="traceability" className="bg-deep-2 py-20 text-cream lg:py-28">
         <Container>
           <SectionHeading
             light
@@ -247,14 +265,14 @@ export default function HomePage() {
           <div className="mt-12 overflow-x-auto">
             <FlowDiagram steps={TRACEABILITY_FLOW} light />
           </div>
-          <Button href="/rastreabilidade" variant="outline" className="mt-10">
+          <Button href="/traceability" variant="outline" className="mt-10">
             Explore the traceability system →
           </Button>
         </Container>
       </section>
 
       {/* Portuguese production */}
-      <section className="bg-cream-2 py-20 lg:py-28">
+      <section id="production" className="bg-cream-2 py-20 lg:py-28">
         <Container>
           <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
             <SectionHeading
@@ -266,14 +284,14 @@ export default function HomePage() {
               <StatCard label="Registration" value="INFARMED" hint="Cosmetic entity registration in Portugal" />
               <StatCard label="Market access" value="CPNP" hint="Single EU notification portal" />
               <StatCard label="Quality system" value="ISO 22716" hint="GMP-aligned documentation" />
-              <StatCard label="Origin" value="Feito em Portugal" hint="Local manufacturing narrative" />
+              <StatCard label="Origin" value="Made in Portugal" hint="Local manufacturing narrative" />
             </div>
           </div>
         </Container>
       </section>
 
       {/* Download dossiers */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section id="dossiers" className="bg-cream py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Go deeper"
@@ -305,7 +323,7 @@ export default function HomePage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-cream-2 py-20 lg:py-28">
+      <section id="faq" className="bg-cream-2 py-20 lg:py-28">
         <Container>
           <SectionHeading
             eyebrow="Frequently asked"

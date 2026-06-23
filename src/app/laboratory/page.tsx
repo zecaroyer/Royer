@@ -72,13 +72,13 @@ const EQUIPMENT_CATEGORIES: EquipmentCategory[] = [
   "Safety & Facilities",
 ];
 
-export default function ProjetoLaboratorioPage() {
+export default function LaboratoryPage() {
   return (
     <>
       <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Projeto Laboratório" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Laboratory Project" }]} />
           <p className="section-eyebrow text-gold-light">Technical project</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Laboratory project — full technical concept
@@ -335,11 +335,11 @@ export default function ProjetoLaboratorioPage() {
         <Container>
           <SectionHeading
             light
-            eyebrow="09 · Rastreabilidade / traceability system"
+            eyebrow="09 · Traceability system"
             title="One batch number, traceable end to end."
             description="The full data model, mock batch records and software architecture live on the dedicated traceability page. In summary: every finished unit traces back through packaging lot, manufacturing batch, formula version and raw material lot to its originating supplier — and forward to the customer or distributor who received it."
           />
-          <Button href="/rastreabilidade" variant="outline" className="mt-8">
+          <Button href="/traceability" variant="outline" className="mt-8">
             Open the traceability system →
           </Button>
         </Container>
@@ -390,7 +390,7 @@ export default function ProjetoLaboratorioPage() {
               </tbody>
             </Table>
           </div>
-          <Button href="/custos" variant="ghost" className="mt-8">
+          <Button href="/costs" variant="ghost" className="mt-8">
             Open the cost calculator →
           </Button>
         </Container>

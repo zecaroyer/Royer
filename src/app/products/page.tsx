@@ -17,12 +17,12 @@ export const metadata: Metadata = {
     "Commercial catalogue of the six ROYER SKUs — cosmetic positioning, hero ingredient and cosmetic-only claims. Regulatory validation required before any sale.",
 };
 
-export default function ProdutosPage() {
+export default function ProductsPage() {
   return (
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Produtos" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Products" }]} />
           <p className="section-eyebrow text-gold-light">Product catalogue</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Six SKUs. Cosmetics only.
@@ -142,7 +142,7 @@ export default function ProdutosPage() {
               <li className="flex gap-2"><span className="text-gold">—</span> Every product is a cosmetic under Regulation (EC) 1223/2009: cleansing, perfuming, protecting, or keeping skin in good condition.</li>
               <li className="flex gap-2"><span className="text-gold">—</span> No claim treats, cures, prevents, or relieves any disease or medical condition.</li>
               <li className="flex gap-2"><span className="text-gold">—</span> No product is marketed as containing or delivering CBD — hemp seed oil is the only cannabis-plant-derived ingredient used, and only as a cosmetic emollient.</li>
-              <li className="flex gap-2"><span className="text-gold">—</span> Prices shown are indicative, ex. VAT, and pending final cost validation — see /custos.</li>
+              <li className="flex gap-2"><span className="text-gold">—</span> Prices shown are indicative, ex. VAT, and pending final cost validation — see /costs.</li>
             </ul>
             <RegulatoryHoldBox />
           </div>

@@ -10,12 +10,12 @@ export const metadata: Metadata = {
     "Editable cost and production economics model for the six real SKUs: raw material, packaging, labour, QC, and regulatory allocation, D2C and wholesale margin, minimum retail price, and batch profit.",
 };
 
-export default function CustosPage() {
+export default function CostsPage() {
   return (
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Custos" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Costs" }]} />
           <p className="section-eyebrow text-gold-light">Cost calculator</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             SKU economics, fully editable.

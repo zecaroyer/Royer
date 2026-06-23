@@ -89,7 +89,7 @@ export const RISK_REGISTER: Risk[] = [
     risk: "Cost assumptions in the economic model diverge materially from real supplier quotes.",
     likelihood: "High",
     impact: "Medium",
-    mitigation: "All figures on /custos are explicit placeholders pending formal supplier quotations before financial commitments.",
+    mitigation: "All figures on /costs are explicit placeholders pending formal supplier quotations before financial commitments.",
     owner: "Finance / project lead",
   },
   {

@@ -63,15 +63,15 @@ npm run lint
 src/
   app/
     page.tsx                 # / — landing page
-    produtos/                # /produtos — commercial SKU catalogue
+    products/                # /products — commercial SKU catalogue
     formulas/                # /formulas — formulation, chemistry & testing dossier
-    investidores/            # /investidores — angel investment plan
-    projeto-laboratorio/     # /projeto-laboratorio — full technical project
+    investors/               # /investors — angel investment plan
+    laboratory/              # /laboratory — full technical project
     compliance/              # /compliance — compliance dashboard
-    custos/                  # /custos — SKU cost & margin calculator
-    rastreabilidade/         # /rastreabilidade — traceability system
+    costs/                   # /costs — SKU cost & margin calculator
+    traceability/            # /traceability — traceability system
     sops/                    # /sops — per-SKU manufacturing SOPs
-    mapa-do-site/            # /mapa-do-site — human-readable site map
+    site-map/                # /site-map — human-readable site map
     layout.tsx               # root layout: fonts, NavBar, Footer, JSON-LD, skip link
     globals.css              # design tokens, focus/scroll/print/reduced-motion styles
     not-found.tsx, error.tsx # branded 404 and error boundary
@@ -83,7 +83,7 @@ src/
                               # Tooltip, TldrCallout, CopyLinkButton,
                               # RegulatoryHoldBox, FormulationDisclaimerBox, etc.
     ContactFormMockup.tsx, NewsletterSignup.tsx
-    CostCalculator.tsx        # client-side SKU economics calculator (/custos)
+    CostCalculator.tsx        # client-side SKU economics calculator (/costs)
     BotanicalArt.tsx, ScrollToTop.tsx, ReadingProgress.tsx, ScrollSpyNav.tsx,
     RevealOnScroll.tsx, StatsCounter.tsx
   data/                      # typed content: compliance matrix, equipment, risks,
@@ -104,7 +104,7 @@ public/*.md                  # web-servable copies of the three dossiers above
 
 All page content is driven by typed data files under `src/data/`. There is no
 backend yet — `src/data/entities.ts` documents the data model as it is intended to
-be implemented later (PostgreSQL via Prisma), and the cost calculator on `/custos`
+be implemented later (PostgreSQL via Prisma), and the cost calculator on `/costs`
 runs entirely client-side against editable assumptions in `src/data/skuCosts.ts`
 and `src/data/packaging.ts`.
 
@@ -126,7 +126,7 @@ and `src/data/packaging.ts`.
 
 1. Engage a qualified regulatory consultant and cosmetic safety assessor — start
    from the gaps tracked on `/compliance` and the validation checklist on
-   `/projeto-laboratorio`.
+   `/laboratory`.
 2. Obtain a written legal opinion on the CBD/cannabinoid ingredient question before
    any such ingredient is sourced, tested, or mentioned beyond this draft.
 3. Replace every placeholder figure in `src/data/skuCosts.ts` and `src/data/packaging.ts`

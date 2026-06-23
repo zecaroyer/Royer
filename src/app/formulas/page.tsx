@@ -48,7 +48,7 @@ export default function FormulasPage() {
       <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Fórmulas" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Formulas" }]} />
           <p className="section-eyebrow text-gold-light">Product formulation</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Six draft formulas, fully costed and chemistry-referenced.
@@ -257,7 +257,7 @@ export default function FormulasPage() {
                       <Badge label={`Wholesale margin ${econ.grossMarginWholesalePct.toFixed(0)}%`} tone={marginTone(econ.grossMarginWholesalePct)} />
                     </div>
                     <p className="mt-2 text-xs text-ink-soft/70">
-                      Full editable model: see <a className="underline" href="/custos">/custos</a>.
+                      Full editable model: see <a className="underline" href="/costs">/costs</a>.
                     </p>
                   </GlassCard>
 

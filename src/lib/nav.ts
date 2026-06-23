@@ -4,12 +4,12 @@ export type NavItem = {
 };
 
 export const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Início" },
-  { href: "/produtos", label: "Produtos" },
-  { href: "/formulas", label: "Fórmulas" },
-  { href: "/investidores", label: "Investidores" },
-  { href: "/projeto-laboratorio", label: "Projeto Laboratório" },
+  { href: "/", label: "Home" },
+  { href: "/products", label: "Products" },
+  { href: "/formulas", label: "Formulas" },
+  { href: "/investors", label: "Investors" },
+  { href: "/laboratory", label: "Laboratory Project" },
   { href: "/compliance", label: "Compliance" },
-  { href: "/custos", label: "Custos" },
-  { href: "/rastreabilidade", label: "Rastreabilidade" },
+  { href: "/costs", label: "Costs" },
+  { href: "/traceability", label: "Traceability" },
 ];

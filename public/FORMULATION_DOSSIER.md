@@ -36,9 +36,9 @@ implies CBD.**
   as their own percentage line.
 - Cost figures (€/kg, €/unit, margins) are **placeholder assumptions** — see
   `src/data/skuCosts.ts`, `src/data/packaging.ts` and the live calculator at
-  `/custos`. None of them are real supplier quotations.
+  `/costs`. None of them are real supplier quotations.
 - Full interactive versions of everything below live at `/formulas` (formulation +
-  chemistry + testing) and `/custos` (editable economics).
+  chemistry + testing) and `/costs` (editable economics).
 
 ---
 
@@ -99,7 +99,7 @@ collection.
 
 **Cost/margin model (placeholder):** raw material + packaging + labour + QC +
 regulatory allocation → total COGS/unit. Target retail (ex. VAT) **€24.90**; target
-COGS ceiling **€8.00**; target gross margin **>65%**. See `/custos` for live figures.
+COGS ceiling **€8.00**; target gross margin **>65%**. See `/costs` for live figures.
 
 ---
 
@@ -410,7 +410,7 @@ profiles): `/formulas#chemistry` and `src/data/ingredientChemistry.ts`.
 | SKU-06 Aloe Botanical Gel-Cream | €18.90 | < €6.50 | > 65% |
 
 Live, editable model (raw material, packaging, labour, QC, regulatory allocation,
-wastage, distributor margin, break-even by batch size): `/custos`. Every figure is
+wastage, distributor margin, break-even by batch size): `/costs`. Every figure is
 a placeholder pending real supplier quotations.
 
 ## Supplier quote checklist

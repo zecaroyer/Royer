@@ -32,7 +32,7 @@ export default function SopsPage() {
       <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "SOPs" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "SOPs" }]} />
           <p className="section-eyebrow text-gold-light">Documentation plan</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Manufacturing SOPs for all six SKUs.
@@ -57,7 +57,7 @@ export default function SopsPage() {
             used on /formulas — so the procedure, target pH/viscosity, and
             in-process controls can never drift out of sync with the actual BOM.
             General facility SOPs (cleaning, calibration, training, etc.) are
-            listed separately on /projeto-laboratorio#documentation.
+            listed separately on /laboratory#documentation.
           </TldrCallout>
         </Container>
       </section>
@@ -213,7 +213,7 @@ export default function SopsPage() {
             description="The 30 facility-wide SOPs (supplier qualification, cleaning, calibration, training, deviations, recalls, and more) are tracked separately."
           />
           <Link
-            href="/projeto-laboratorio#documentation"
+            href="/laboratory#documentation"
             className="mt-6 inline-flex items-center text-sm font-medium text-gold-light hover:underline"
           >
             Open the full documentation plan →

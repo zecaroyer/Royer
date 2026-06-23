@@ -8,6 +8,8 @@ import BarChart from "@/components/ui/BarChart";
 import { Table, THead, Th, Tr, Td } from "@/components/ui/Table";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import ContactFormMockup from "@/components/ContactFormMockup";
+import ReadingProgress from "@/components/ReadingProgress";
+import ScrollSpyNav from "@/components/ScrollSpyNav";
 import { SKUS } from "@/data/skus";
 import { DEFAULT_SKU_ASSUMPTIONS, computeSkuEconomics } from "@/data/skuCosts";
 import { ROADMAP } from "@/data/roadmap";
@@ -25,14 +27,26 @@ export const metadata: Metadata = {
     "ROYER angel investment plan: market opportunity, six-SKU unit economics, 12-month roadmap, use of funds, and risk factors for a Portuguese compliance-first botanical cosmetics brand.",
 };
 
-export default function InvestidoresPage() {
+const TOC = [
+  { id: "opportunity", label: "Opportunity" },
+  { id: "unit-economics", label: "Unit economics" },
+  { id: "roadmap", label: "Roadmap" },
+  { id: "use-of-funds", label: "Use of funds" },
+  { id: "financial-ramp", label: "Financial ramp" },
+  { id: "risk", label: "Risk factors" },
+  { id: "team", label: "Team" },
+  { id: "contact", label: "Contact" },
+];
+
+export default function InvestorsPage() {
   const economics = SKUS.map((sku) => ({ sku, econ: computeSkuEconomics(sku.id, DEFAULT_SKU_ASSUMPTIONS) }));
 
   return (
     <>
+      <ReadingProgress />
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Investidores" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Investors" }]} />
           <p className="section-eyebrow text-gold-light">Angel investment plan</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Raising €{TARGET_RAISE_EUR.toLocaleString()} to take six finished
@@ -73,11 +87,12 @@ export default function InvestidoresPage() {
             </GlassCard>
           </div>
           <p className="mt-2 text-xs text-cream/40">Draft last updated: June 2026</p>
+          <ScrollSpyNav items={TOC} />
         </Container>
       </section>
 
       {/* Market opportunity */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section id="opportunity" className="bg-cream py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="The opportunity"
@@ -93,12 +108,12 @@ export default function InvestidoresPage() {
       </section>
 
       {/* Product + unit economics */}
-      <section className="bg-cream-2 py-16 lg:py-20">
+      <section id="unit-economics" className="bg-cream-2 py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Six SKUs, already formulated"
             title="Unit economics, computed live from the same model used to run the business."
-            description="All figures are placeholder cost assumptions pending real supplier quotes — see /custos to edit every input."
+            description="All figures are placeholder cost assumptions pending real supplier quotes — see /costs to edit every input."
           />
           <div className="mt-10">
             <Table>
@@ -128,14 +143,14 @@ export default function InvestidoresPage() {
             wastage. Treat as an upper-bound ceiling, not a forecast.
           </p>
           <div className="mt-6 flex gap-3">
-            <Button href="/produtos" variant="ghost">See the product catalogue →</Button>
+            <Button href="/products" variant="ghost">See the product catalogue →</Button>
             <Button href="/formulas" variant="ghost">See the full formulas →</Button>
           </div>
         </Container>
       </section>
 
       {/* Roadmap */}
-      <section className="bg-botanical-dark py-16 text-cream lg:py-20">
+      <section id="roadmap" className="bg-botanical-dark py-16 text-cream lg:py-20">
         <Container>
           <SectionHeading
             light
@@ -150,14 +165,14 @@ export default function InvestidoresPage() {
               </div>
             ))}
           </div>
-          <Button href="/projeto-laboratorio#roadmap" variant="outline" className="mt-6">
+          <Button href="/laboratory#roadmap" variant="outline" className="mt-6">
             Full roadmap detail →
           </Button>
         </Container>
       </section>
 
       {/* Use of funds */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section id="use-of-funds" className="bg-cream py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Use of funds"
@@ -188,7 +203,7 @@ export default function InvestidoresPage() {
       </section>
 
       {/* Financial ramp */}
-      <section className="bg-cream-2 py-16 lg:py-20">
+      <section id="financial-ramp" className="bg-cream-2 py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Illustrative financial ramp"
@@ -218,7 +233,7 @@ export default function InvestidoresPage() {
       </section>
 
       {/* Risk */}
-      <section className="bg-cream py-16 lg:py-20">
+      <section id="risk" className="bg-cream py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Risk factors"
@@ -232,14 +247,14 @@ export default function InvestidoresPage() {
               </GlassCard>
             ))}
           </div>
-          <Button href="/projeto-laboratorio#risks" variant="ghost" className="mt-6">
+          <Button href="/laboratory#risks" variant="ghost" className="mt-6">
             Full risk register →
           </Button>
         </Container>
       </section>
 
       {/* Team */}
-      <section className="bg-cream-2 py-16 lg:py-20">
+      <section id="team" className="bg-cream-2 py-16 lg:py-20">
         <Container>
           <SectionHeading
             eyebrow="Team"

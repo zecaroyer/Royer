@@ -27,7 +27,7 @@ export default function CompliancePage() {
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Compliance" }]} />
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Compliance" }]} />
           <p className="section-eyebrow text-gold-light">Compliance dashboard</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Every regulatory module, one screen.

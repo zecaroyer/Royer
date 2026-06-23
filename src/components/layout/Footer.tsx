@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="section-eyebrow text-gold-light">Navegação</p>
+            <p className="section-eyebrow text-gold-light">Navigation</p>
             <ul className="mt-3 space-y-2 text-sm">
               {NAV_ITEMS.map((item) => (
                 <li key={item.href}>
@@ -30,19 +30,19 @@ export default function Footer() {
               ))}
               <li>
                 <Link href="/sops" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
-                  SOPs de fabricação
+                  Manufacturing SOPs
                 </Link>
               </li>
               <li>
-                <Link href="/mapa-do-site" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
-                  Mapa do site
+                <Link href="/site-map" className="border-b border-transparent transition-colors hover:border-gold/40 hover:text-cream">
+                  Site Map
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <p className="section-eyebrow text-gold-light">Referências regulatórias</p>
+            <p className="section-eyebrow text-gold-light">Regulatory references</p>
             <ul className="mt-3 space-y-2 text-sm">
               <li>EU Cosmetics Regulation (EC) 1223/2009</li>
               <li>ISO 22716:2007 / EN ISO 22716</li>

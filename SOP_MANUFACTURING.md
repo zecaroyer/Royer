@@ -8,7 +8,7 @@ GMP certification.
 This document covers the **per-SKU manufacturing SOPs** only. The 30 general
 facility-wide SOPs (supplier qualification, cleaning, calibration, training,
 deviations, complaints, recalls, document control, etc.) are listed in
-`PROJECT_DOSSIER.md` §10 and on `/projeto-laboratorio#documentation`
+`PROJECT_DOSSIER.md` §10 and on `/laboratory#documentation`
 (`src/data/sops.ts`).
 
 Live, interactive version of everything below: `/sops`. Source data:

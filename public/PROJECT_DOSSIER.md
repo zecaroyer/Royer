@@ -199,7 +199,7 @@ engineering and supplier validation:
   fire/spill/eyewash safety equipment, segregated waste bins.
 
 (See `src/data/equipment.ts` for the full structured list rendered on
-`/projeto-laboratorio`.)
+`/laboratory`.)
 
 ## 9. Quality control plan
 
@@ -226,7 +226,7 @@ PIF/CPSR maintenance, CPNP notification, claims substantiation, and label/artwor
 approval; training records; and document control itself.
 
 (Full list with codes and purpose: `src/data/sops.ts`, rendered on
-`/projeto-laboratorio`.)
+`/laboratory`.)
 
 ## 11. Rastreabilidade / traceability system
 
@@ -252,7 +252,7 @@ against PostgreSQL via Prisma without redesign.
 ## 12. Compliance software modules & data model
 
 Conceptual entities (28 total), grouped as follows — see `src/data/entities.ts`
-for full field-level definitions, and `/rastreabilidade` for the rendered model:
+for full field-level definitions, and `/traceability` for the rendered model:
 
 - **Identity & access:** User, Role, AuditLog, TrainingRecord.
 - **Supply chain:** Supplier, RawMaterial, RawMaterialLot, COASDSDocument.
@@ -272,7 +272,7 @@ of **Draft**, **Needs Expert Review**, **Ready for Validation**, or **Approved**
 ## 13. Cost model (placeholder assumptions)
 
 Four packaging scenarios are modelled in `src/data/costs.ts` and rendered live on
-`/custos`: 30 ml premium face cream, 50 ml face cream, 100 ml body cream, and
+`/costs`: 30 ml premium face cream, 50 ml face cream, 100 ml body cream, and
 250 ml lotion. The model computes, per scenario: formula cost/unit, packaging
 cost/unit, batch direct cost, fully-loaded unit cost (including amortised safety
 assessment and PIF/CPSR allocation), trade price, manufacturer gross margin, and a
@@ -304,7 +304,7 @@ preservation risk, supply chain variability, cross-contamination/line clearance
 failures, documentation completeness at inspection time, facility environmental
 drift, cost-model divergence from real quotes, and Responsible Person designation
 risk. Each risk has an assigned likelihood, impact, mitigation, and owner — see
-`/projeto-laboratorio` for the full table.
+`/laboratory` for the full table.
 
 ## 16. Validation checklist
 

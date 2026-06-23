@@ -12,26 +12,26 @@ export const metadata: Metadata = {
 
 const PAGE_DESCRIPTIONS: Record<string, string> = {
   "/": "Landing page: concept, product families, why aloe vera & botanicals, compliance-first approach, traceability, contact.",
-  "/produtos": "Commercial catalogue of the six SKUs — positioning, hero ingredient, cosmetic-only claims.",
+  "/products": "Commercial catalogue of the six SKUs — positioning, hero ingredient, cosmetic-only claims.",
   "/formulas": "Full formulation dossier: % w/w formulas, ingredient chemistry, manufacturing process, testing plan, cost summary.",
-  "/investidores": "Angel investment plan: market opportunity, unit economics, roadmap, use of funds, risk factors.",
-  "/projeto-laboratorio": "Full technical laboratory project: layout, flows, GMP, equipment, QC, documentation, roadmap.",
+  "/investors": "Angel investment plan: market opportunity, unit economics, roadmap, use of funds, risk factors.",
+  "/laboratory": "Full technical laboratory project: layout, flows, GMP, equipment, QC, documentation, roadmap.",
   "/compliance": "Live compliance dashboard: PIF, CPSR, CPNP, Responsible Person, GMP, labels, claims, and more.",
-  "/custos": "Editable per-SKU cost and margin calculator.",
-  "/rastreabilidade": "Batch traceability system: architecture, data model, mock batch records.",
+  "/costs": "Editable per-SKU cost and margin calculator.",
+  "/traceability": "Batch traceability system: architecture, data model, mock batch records.",
 };
 
 const EXTRA_PAGES = [
-  { href: "/sops", label: "SOPs de fabricação", description: "Per-SKU manufacturing Standard Operating Procedures: purpose, scope, responsibilities, safety, equipment, IPC and procedure." },
+  { href: "/sops", label: "Manufacturing SOPs", description: "Per-SKU manufacturing Standard Operating Procedures: purpose, scope, responsibilities, safety, equipment, IPC and procedure." },
 ];
 
-export default function MapaDoSitePage() {
+export default function SiteMapPage() {
   const allPages = [...NAV_ITEMS, ...EXTRA_PAGES];
 
   return (
     <section className="bg-cream py-20 lg:py-28">
       <Container>
-        <Breadcrumb items={[{ label: "Início", href: "/" }, { label: "Mapa do site" }]} />
+        <Breadcrumb items={[{ label: "Home", href: "/" }, { label: "Site Map" }]} />
         <SectionHeading
           eyebrow="Site map"
           title="Every page, one line each."

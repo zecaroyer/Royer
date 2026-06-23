@@ -1,6 +1,6 @@
 import Container from "@/components/ui/Container";
 
-export default function CustosLoading() {
+export default function CostsLoading() {
   return (
     <section className="bg-botanical-dark py-20 lg:py-24">
       <Container>

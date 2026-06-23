@@ -69,7 +69,7 @@ and `/formulas`.
 cosmetics brands treat compliance as a late-stage cost centre. ROYER has built
 the compliance, traceability, and cost-modelling infrastructure *before* writing
 a single label — a working `/compliance` dashboard, a batch traceability data
-model, and a live per-SKU margin calculator (`/custos`) — which materially
+model, and a live per-SKU margin calculator (`/costs`) — which materially
 de-risks the regulatory-submission phase of this raise for an investor.
 
 ---
@@ -97,7 +97,7 @@ function of low modelled raw-material costs relative to premium retail pricing �
 they do not yet account for real customer acquisition cost, returns, sampling,
 freight, or actual (vs. modelled) wastage. Treat these as upper-bound unit
 economics to be stress-tested against real marketing spend once trading begins.
-Live, editable version: `/custos`.
+Live, editable version: `/costs`.
 
 ---
 
@@ -134,10 +134,10 @@ project. What exists today, concretely, in this repository:
   complaints, recalls, and CAPA — all currently "Draft" or "Needs Expert
   Review" by design, because nothing has been validated by a real expert yet.
 - A full laboratory layout, GMP zoning, equipment list, and 12-month
-  implementation roadmap (`PROJECT_DOSSIER.md`, `/projeto-laboratorio`).
-- A live, editable cost/margin calculator per SKU (`/custos`).
+  implementation roadmap (`PROJECT_DOSSIER.md`, `/laboratory`).
+- A live, editable cost/margin calculator per SKU (`/costs`).
 - Brand identity (ROYER) and AI-generated concept product photography
-  (`/produtos`) — concept renders, not final packaging.
+  (`/products`) — concept renders, not final packaging.
 
 In other words: the round buys execution of an already-designed plan, not
 discovery of what to build.
@@ -155,7 +155,7 @@ discovery of what to build.
 | 4 — Regulatory Submission & Launch Readiness | Months 9–11 | CPSR finalised, label legal review, CPNP notification, PIF completed |
 | 5 — Commercial Launch | Month 12+ | First commercial release, D2C live, complaint/CAPA processes live |
 
-Full detail: `/projeto-laboratorio`.
+Full detail: `/laboratory`.
 
 ---
 
@@ -195,8 +195,8 @@ final terms subject to legal counsel on both sides.
 
 | Allocation | % | Approx. € | Covers |
 |---|---|---|---|
-| Regulatory & compliance | 10% | €30,000 | Safety assessor, CPSR/PIF/CPNP costs across 6 SKUs (~€25,800 modelled, §8 of `/custos`), legal/regulatory consultant fees |
-| Facility fit-out & equipment | 30% | €90,000 | Lab zoning, HVAC/water utilities, core equipment list (`/projeto-laboratorio#equipment`) |
+| Regulatory & compliance | 10% | €30,000 | Safety assessor, CPSR/PIF/CPNP costs across 6 SKUs (~€25,800 modelled, §8 of `/costs`), legal/regulatory consultant fees |
+| Facility fit-out & equipment | 30% | €90,000 | Lab zoning, HVAC/water utilities, core equipment list (`/laboratory#equipment`) |
 | Initial production & inventory | 15% | €45,000 | First commercial batches across all 6 SKUs, packaging, raw materials |
 | Brand, content & launch marketing | 20% | €60,000 | Real product photography, e-commerce build, launch campaign |
 | Team & operations | 20% | €60,000 | Founder/operator runway, contract labour, admin |
@@ -211,7 +211,7 @@ still needs a real, dated quote (see the Supplier Quote Checklist in
 ## 10. Risk factors
 
 The full risk register (10 risks, likelihood/impact/mitigation/owner) lives at
-`/projeto-laboratorio#risks` and `src/data/risks.ts`. The risks most relevant to
+`/laboratory#risks` and `src/data/risks.ts`. The risks most relevant to
 an investor, summarised:
 
 1. **Regulatory — CBD/cannabinoid ingredient risk.** Mitigated by design: no
@@ -223,7 +223,7 @@ an investor, summarised:
    — mitigated by the claims-substantiation workflow already built into
    `/compliance`.
 3. **Timing risk.** Placing product on the market before CPNP/CPSR completion —
-   mitigated by a hard launch-checklist gate (`/projeto-laboratorio#checklist`).
+   mitigated by a hard launch-checklist gate (`/laboratory#checklist`).
 4. **Cost-model risk.** Every cost figure in this plan is a placeholder; real
    supplier quotes could materially change the unit economics in §4 and §8.
 5. **Execution risk.** This plan assumes a founding team capable of running
@@ -260,11 +260,11 @@ round of this size typically expects a named:
 
 ## 13. Related documents
 
-- `PROJECT_DOSSIER.md` / `/projeto-laboratorio` — full laboratory & regulatory plan.
+- `PROJECT_DOSSIER.md` / `/laboratory` — full laboratory & regulatory plan.
 - `FORMULATION_DOSSIER.md` / `/formulas` — six formulas, chemistry, manufacturing, testing.
 - `/compliance` — live compliance status dashboard.
-- `/custos` — live, editable per-SKU cost & margin calculator.
-- `/rastreabilidade` — batch traceability system design.
+- `/costs` — live, editable per-SKU cost & margin calculator.
+- `/traceability` — batch traceability system design.
 
 ---
 

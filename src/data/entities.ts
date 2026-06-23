@@ -4,7 +4,7 @@
 // This is a conceptual entity model, written so it can be translated almost
 // directly into a PostgreSQL schema managed by Prisma in a later phase.
 // No backend exists yet — this file is documentation/reference only and
-// drives the data-model tables shown on /rastreabilidade.
+// drives the data-model tables shown on /traceability.
 // ---------------------------------------------------------------------------
 
 export type EntityField = {

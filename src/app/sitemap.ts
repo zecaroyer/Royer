@@ -6,15 +6,15 @@ const BASE_URL = "https://example.com";
 
 const ROUTES: { path: string; priority: number }[] = [
   { path: "/", priority: 1 },
-  { path: "/produtos", priority: 0.9 },
+  { path: "/products", priority: 0.9 },
   { path: "/formulas", priority: 0.8 },
-  { path: "/investidores", priority: 0.8 },
-  { path: "/projeto-laboratorio", priority: 0.7 },
+  { path: "/investors", priority: 0.8 },
+  { path: "/laboratory", priority: 0.7 },
   { path: "/compliance", priority: 0.7 },
-  { path: "/custos", priority: 0.6 },
-  { path: "/rastreabilidade", priority: 0.6 },
+  { path: "/costs", priority: 0.6 },
+  { path: "/traceability", priority: 0.6 },
   { path: "/sops", priority: 0.6 },
-  { path: "/mapa-do-site", priority: 0.3 },
+  { path: "/site-map", priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

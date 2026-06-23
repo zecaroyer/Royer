@@ -22,11 +22,11 @@ export const HOME_FAQ: FaqItem[] = [
   {
     question: "How can I invest or partner with ROYER?",
     answer:
-      "See /investidores for the angel investment plan, unit economics, and a contact form to request the data room or book a call.",
+      "See /investors for the angel investment plan, unit economics, and a contact form to request the data room or book a call.",
   },
   {
     question: "Where are the products manufactured?",
     answer:
-      "The laboratory concept is designed to be built and registered in Portugal, manufacturing under ISO 22716 GMP and selling EU-wide via a single CPNP notification per SKU. See /projeto-laboratorio.",
+      "The laboratory concept is designed to be built and registered in Portugal, manufacturing under ISO 22716 GMP and selling EU-wide via a single CPNP notification per SKU. See /laboratory.",
   },
 ];

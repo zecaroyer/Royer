@@ -53,13 +53,13 @@ const ARCHITECTURE_LAYERS = [
   },
 ];
 
-export default function RastreabilidadePage() {
+export default function TraceabilityPage() {
   return (
     <>
       <section className="bg-botanical-dark py-20 text-cream lg:py-24">
         <Container>
-          <Breadcrumb light items={[{ label: "Início", href: "/" }, { label: "Rastreabilidade" }]} />
-          <p className="section-eyebrow text-gold-light">Rastreabilidade</p>
+          <Breadcrumb light items={[{ label: "Home", href: "/" }, { label: "Traceability" }]} />
+          <p className="section-eyebrow text-gold-light">Traceability</p>
           <h1 className="mt-4 max-w-3xl text-balance font-display text-4xl sm:text-5xl">
             Traceability &amp; quality system
           </h1>

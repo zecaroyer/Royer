@@ -51,15 +51,15 @@ export default function NavBar() {
 
         <div className="hidden xl:block">
           <Link
-            href="/projeto-laboratorio"
+            href="/laboratory"
             className="whitespace-nowrap rounded-full border border-gold/50 bg-gold/10 px-5 py-2 text-sm font-medium text-gold-light transition-colors hover:bg-gold/20"
           >
-            Pedir dossiê do projeto
+            Request project dossier
           </Link>
         </div>
 
         <button
-          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 xl:hidden"
           onClick={() => setOpen((v) => !v)}

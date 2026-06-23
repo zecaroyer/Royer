@@ -59,7 +59,7 @@ export const COMPLIANCE_MODULES: ComplianceModule[] = [
     description:
       "Good Manufacturing Practice framework: premises, personnel, equipment, production, QC, documentation, deviations.",
     owner: "Quality Assurance",
-    nextAction: "Build the GMP documentation set in parallel with facility fit-out (see /projeto-laboratorio).",
+    nextAction: "Build the GMP documentation set in parallel with facility fit-out (see /laboratory).",
   },
   {
     id: "labels",
@@ -119,7 +119,7 @@ export const COMPLIANCE_MODULES: ComplianceModule[] = [
     description:
       "Procedure to withdraw or recall product from the market using batch traceability, including authority notification.",
     owner: "Responsible Person + QA",
-    nextAction: "Run a mock recall exercise once batch traceability (see /rastreabilidade) is operational.",
+    nextAction: "Run a mock recall exercise once batch traceability (see /traceability) is operational.",
   },
   {
     id: "capa",
