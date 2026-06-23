@@ -227,19 +227,21 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* The ritual — hero video */}
-      <section id="ritual" className="bg-cream-2 py-20 lg:py-28">
+      {/* The ritual — brand film */}
+      <section id="ritual" className="bg-botanical-dark py-20 text-cream lg:py-28">
         <Container>
+          <div className="divider-gold mb-10" />
           <SectionHeading
+            light
             align="center"
-            eyebrow="The ritual"
-            title="A minute of morning, slowed down."
-            description="An AI-generated concept film — not footage of a real customer. The voiceover describes texture and sensation only; it makes no claim about results, and isn't a testimonial."
+            eyebrow="The ritual · 1 min"
+            title="The whole project, in one minute."
+            description="An AI-generated concept film — not footage of a real customer, and not a testimonial. Every line describes the brand or a sensation in the moment; none of it claims a result."
           />
-          <div className="mx-auto mt-10 max-w-xs">
-            <div className="glass-card-light relative aspect-[9/16] overflow-hidden rounded-[2rem]">
+          <div className="mx-auto mt-10 max-w-sm">
+            <div className="glass-card relative aspect-[9/16] overflow-hidden rounded-[2rem]">
               <video
-                src="/marketing/hero.mp4"
+                src="/marketing/brand-film.mp4"
                 controls
                 playsInline
                 preload="metadata"
@@ -247,6 +249,9 @@ export default function HomePage() {
               />
               <span className="absolute bottom-3 right-3 rounded-full bg-deep/80 px-2.5 py-1 text-[0.6rem] font-medium text-cream/90 backdrop-blur-sm">
                 AI concept film — not a real customer
+              </span>
+              <span className="absolute top-3 left-3 rounded-full border border-gold/40 bg-deep/70 px-2.5 py-1 text-[0.6rem] font-medium text-gold-light backdrop-blur-sm">
+                ▶ 1:00
               </span>
             </div>
           </div>
