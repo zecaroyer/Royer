@@ -12,7 +12,7 @@ export default function Accordion({ items }: { items: AccordionItem[] }) {
   const [openId, setOpenId] = useState<string | null>(items[0]?.id ?? null);
 
   return (
-    <div className="divide-y divide-ink/10 rounded-2xl border border-ink/10">
+    <div className="divide-y divide-gold/15 rounded-2xl border border-gold/20 bg-white/40">
       {items.map((item) => {
         const isOpen = openId === item.id;
         return (

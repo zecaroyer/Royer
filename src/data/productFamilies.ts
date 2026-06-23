@@ -1,3 +1,5 @@
+import type { SkuId } from "./skus";
+
 export type ProductFamily = {
   id: string;
   name: string;
@@ -5,6 +7,7 @@ export type ProductFamily = {
   description: string;
   keyIngredients: string[];
   cosmeticClaims: string[];
+  representativeSkuId: SkuId;
 };
 
 // Cosmetic positioning only. No medical, therapeutic or treatment claims.
@@ -20,6 +23,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
       "A light, fast-absorbing gel-cream built on a high-content aloe vera base, designed for a fresh, hydrated skin-feel and a clean sensory finish.",
     keyIngredients: ["Aloe Barbadensis leaf juice", "Glycerin", "Panthenol"],
     cosmeticClaims: ["Hydrates", "Lightweight finish", "Refreshing sensation"],
+    representativeSkuId: "sku-06",
   },
   {
     id: "hemp-seed-body-cream",
@@ -29,6 +33,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
       "A nourishing body cream formulated around cold-pressed hemp seed oil for a silky after-feel and long-lasting surface comfort.",
     keyIngredients: ["Cannabis Sativa seed oil", "Shea butter", "Aloe vera"],
     cosmeticClaims: ["Nourishes skin surface", "Silky after-feel", "Softens skin texture"],
+    representativeSkuId: "sku-05",
   },
   {
     id: "botanical-facial-line",
@@ -38,6 +43,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
       "A premium facial line combining aloe vera with rosemary, calendula and green tea extracts for a balanced, elegant daily routine.",
     keyIngredients: ["Aloe vera", "Calendula officinalis extract", "Camellia sinensis (green tea) extract"],
     cosmeticClaims: ["Daily comfort", "Smooth, even-looking skin", "Antioxidant-rich formula"],
+    representativeSkuId: "sku-02",
   },
   {
     id: "botanical-body-lotion",
@@ -47,6 +53,7 @@ export const PRODUCT_FAMILIES: ProductFamily[] = [
       "A fluid, quickly absorbed lotion for everyday use, combining aloe vera with lavender and chamomile extracts purely for fragrance and sensory character.",
     keyIngredients: ["Aloe vera", "Lavandula angustifolia extract", "Chamomilla recutita extract"],
     cosmeticClaims: ["Everyday hydration", "Pleasant botanical scent", "Quick absorption"],
+    representativeSkuId: "sku-03",
   },
 ];
 

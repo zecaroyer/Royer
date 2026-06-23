@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NAV_ITEMS, PUBLIC_NAV_ITEMS } from "@/lib/nav";
+import LeafMark from "@/components/ui/LeafMark";
 
 export default function NavBar({ isAdmin }: { isAdmin: boolean }) {
   const pathname = usePathname();
@@ -33,7 +34,7 @@ export default function NavBar({ isAdmin }: { isAdmin: boolean }) {
     <header className="sticky top-0 z-50 border-b border-gold/20 bg-deep/95 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
         <Link href="/" className="group flex items-center gap-3" onClick={() => setOpen(false)}>
-          <LeafMark />
+          <LeafMark className="text-gold-light" />
           <span className="flex flex-col leading-tight">
             <span className="font-display text-lg tracking-[0.18em] text-cream">
               ROYER
@@ -134,19 +135,5 @@ export default function NavBar({ isAdmin }: { isAdmin: boolean }) {
         </nav>
       )}
     </header>
-  );
-}
-
-function LeafMark() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 40 40" className="text-gold-light" aria-hidden="true">
-      <path
-        className="leaf-line"
-        d="M20 36C20 36 8 30 8 16C8 8 14 4 20 4C26 4 32 8 32 16C32 30 20 36 20 36Z"
-      />
-      <path className="leaf-line" d="M20 34V6" />
-      <path className="leaf-line" d="M20 12C16 14 13 17 12 21" />
-      <path className="leaf-line" d="M20 20C24 22 27 25 28 29" />
-    </svg>
   );
 }

@@ -47,13 +47,16 @@ function Counter({ value, suffix = "" }: { value: number; suffix?: string }) {
 
 export default function StatsCounter({ stats }: { stats: CountStat[] }) {
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-      {stats.map((s) => (
-        <div key={s.label} className="text-center">
+    <div className="grid grid-cols-2 gap-6 sm:grid-cols-4">
+      {stats.map((s, i) => (
+        <div
+          key={s.label}
+          className={`text-center ${i > 0 ? "sm:border-l sm:border-gold/15" : ""}`}
+        >
           <p className="font-display text-3xl text-gold-light sm:text-4xl">
             <Counter value={s.value} suffix={s.suffix} />
           </p>
-          <p className="mt-1 text-xs text-cream/65">{s.label}</p>
+          <p className="label-tag mt-1.5 text-[0.65rem] text-cream/65">{s.label}</p>
         </div>
       ))}
     </div>
