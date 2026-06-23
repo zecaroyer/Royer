@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --color-deep: #0d2118;
-  --color-deep-2: #122d20;
-  --color-green: #1c3f2d;
-  --color-green-light: #2f5a42;
-  --color-green-pale: #e8efe6;
+  /* Royal blue + gilt gold — "ROYER" read as "royal". */
+  --color-deep: #0a1330;
+  --color-deep-2: #142459;
+  --color-green: #2746c2;
+  --color-green-light: #4364e0;
+  --color-green-pale: #e8ecfb;
   --color-cream: #faf6ec;
   --color-cream-2: #f3ecd9;
-  --color-gold: #b08d3f;
-  --color-gold-light: #d8bb6f;
-  --color-gold-soft: #e9d9ac;
-  --color-ink: #15241c;
-  --color-ink-soft: #3c4d44;
+  --color-gold: #c2972f;
+  --color-gold-light: #e3c876;
+  --color-gold-soft: #f1e3b9;
+  --color-ink: #121933;
+  --color-ink-soft: #424868;
 
   --background: var(--color-cream);
   --foreground: var(--color-ink);
@@ -105,16 +106,16 @@ h2, h3 {
 .bg-botanical-dark {
   background-color: var(--color-deep);
   background-image:
-    radial-gradient(circle at 12% 18%, rgba(216, 187, 111, 0.10), transparent 40%),
-    radial-gradient(circle at 88% 82%, rgba(47, 90, 66, 0.45), transparent 45%),
-    radial-gradient(circle at 50% 100%, rgba(0, 0, 0, 0.35), transparent 60%);
+    radial-gradient(circle at 12% 18%, rgba(227, 200, 118, 0.12), transparent 40%),
+    radial-gradient(circle at 88% 82%, rgba(67, 100, 224, 0.40), transparent 45%),
+    radial-gradient(circle at 50% 100%, rgba(0, 0, 4, 0.35), transparent 60%);
 }
 
 .glass-card {
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.015));
-  border: 1px solid rgba(216, 187, 111, 0.22);
+  border: 1px solid rgba(227, 200, 118, 0.22);
   backdrop-filter: blur(14px);
-  box-shadow: 0 22px 44px -22px rgba(8, 18, 13, 0.65);
+  box-shadow: 0 22px 44px -22px rgba(5, 8, 24, 0.65);
 }
 
 .glass-card-light {
