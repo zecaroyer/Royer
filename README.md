@@ -1,4 +1,4 @@
-# ROYER — Botanical Cosmetics Laboratory Project
+# ROYER Cosmetics — Botanical Cosmetics Laboratory Project
 
 A local Next.js project presenting a technical and commercial draft for a Portuguese
 cosmetics manufacturing laboratory built around aloe vera, hemp seed oil, and

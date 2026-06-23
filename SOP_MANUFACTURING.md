@@ -1,4 +1,4 @@
-# Manufacturing SOPs — ROYER
+# Manufacturing SOPs — ROYER Cosmetics
 
 **Status: draft, not yet effective.** Every SOP below requires review and formal
 approval by a qualified cosmetic chemist and Quality Assurance before any batch is

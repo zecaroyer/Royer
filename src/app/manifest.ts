@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "ROYER — Botanical Skincare, Portugal",
-    short_name: "ROYER",
+    name: "ROYER Cosmetics — Botanical Skincare",
+    short_name: "ROYER Cosmetics",
     description: "Premium botanical cosmetics laboratory project — aloe vera, hemp seed oil, compliance-first.",
     start_url: "/",
     display: "standalone",

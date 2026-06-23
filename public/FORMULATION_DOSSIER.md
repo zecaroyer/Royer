@@ -1,4 +1,4 @@
-# Formulation Dossier — ROYER
+# Formulation Dossier — ROYER Cosmetics
 
 **All formulas are draft cosmetic formulation concepts only.** They require review
 by a qualified cosmetic chemist, stability testing, microbiological testing,

@@ -8,7 +8,7 @@ export default function Footer({ isAdmin }: { isAdmin: boolean }) {
         <div className="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr]">
           <div>
             <p className="font-display text-xl tracking-[0.12em] text-cream">
-              ROYER
+              ROYER Cosmetics
             </p>
             <p className="mt-3 max-w-sm text-sm leading-relaxed">
               Botanical cosmetics laboratory project — aloe vera, hemp seed oil and
@@ -87,7 +87,7 @@ export default function Footer({ isAdmin }: { isAdmin: boolean }) {
 
         <div className="mt-8 flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs text-cream/40">
-            © {new Date().getFullYear()} ROYER — Project draft for internal,
+            © {new Date().getFullYear()} ROYER Cosmetics — Project draft for internal,
             investor and regulatory review purposes only.
           </p>
           <a href="#main-content" className="text-xs text-cream/50 hover:text-cream">

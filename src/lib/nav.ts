@@ -15,6 +15,8 @@ export const PRIVATE_NAV_ITEMS: NavItem[] = [
   { href: "/compliance", label: "Compliance" },
   { href: "/costs", label: "Costs" },
   { href: "/traceability", label: "Traceability" },
+  { href: "/white-paper", label: "White Paper" },
+  { href: "/marketing-plan", label: "Marketing Plan" },
 ];
 
 export const NAV_ITEMS: NavItem[] = [...PUBLIC_NAV_ITEMS, ...PRIVATE_NAV_ITEMS];

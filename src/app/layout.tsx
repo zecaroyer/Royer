@@ -20,26 +20,26 @@ const inter = Inter({
 // Set it (and update the absolute image URLs below) once a real domain is live.
 export const metadata: Metadata = {
   title: {
-    default: "ROYER — Botanical Skincare, Portugal",
-    template: "%s · ROYER",
+    default: "ROYER Cosmetics — Botanical Skincare",
+    template: "%s · ROYER Cosmetics",
   },
   description:
-    "Technical and commercial draft for ROYER, a Portuguese cosmetics laboratory specialising in aloe vera, hemp seed oil and botanical skincare — compliance-first, EU Cosmetics Regulation (EC) 1223/2009 oriented.",
-  applicationName: "ROYER",
-  keywords: ["ROYER", "cosmetics Portugal", "aloe vera skincare", "botanical cosmetics", "hemp seed oil cosmetics"],
-  authors: [{ name: "ROYER" }],
+    "Technical and commercial draft for ROYER Cosmetics, a Portuguese cosmetics laboratory specialising in aloe vera, hemp seed oil and botanical skincare — compliance-first, EU Cosmetics Regulation (EC) 1223/2009 oriented.",
+  applicationName: "ROYER Cosmetics",
+  keywords: ["ROYER Cosmetics", "cosmetics Portugal", "aloe vera skincare", "botanical cosmetics", "hemp seed oil cosmetics"],
+  authors: [{ name: "ROYER Cosmetics" }],
   openGraph: {
     type: "website",
     locale: "en_PT",
-    siteName: "ROYER",
-    title: "ROYER — Botanical Skincare, Portugal",
+    siteName: "ROYER Cosmetics",
+    title: "ROYER Cosmetics — Botanical Skincare",
     description:
       "A premium botanical cosmetics laboratory project — aloe vera, hemp seed oil and selected botanicals. Cosmetics only. No medical claims.",
     images: ["/products/sku-01.jpg"],
   },
   twitter: {
     card: "summary_large_image",
-    title: "ROYER — Botanical Skincare, Portugal",
+    title: "ROYER Cosmetics — Botanical Skincare",
     description: "A premium botanical cosmetics laboratory project — cosmetics only, compliance-first.",
     images: ["/products/sku-01.jpg"],
   },
@@ -52,10 +52,10 @@ export const viewport: Viewport = {
 const organizationJsonLd = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "ROYER",
+  name: "ROYER Cosmetics",
   description:
     "Premium botanical cosmetics laboratory project in Portugal — aloe vera, hemp seed oil, compliance-first under EU Regulation (EC) 1223/2009.",
-  slogan: "Botanical Skincare, Portugal",
+  slogan: "Botanical Skincare, Engineered in Portugal for the EU",
   areaServed: "EU",
 };
 

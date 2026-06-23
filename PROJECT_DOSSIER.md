@@ -1,4 +1,4 @@
-# Project Dossier — ROYER
+# Project Dossier — ROYER Cosmetics
 
 **Status: technical and commercial draft.** This document is not legal advice.
 Final validation of every regulatory, safety, and labelling matter described here

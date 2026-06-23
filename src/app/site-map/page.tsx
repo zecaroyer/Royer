@@ -19,6 +19,8 @@ const PAGE_DESCRIPTIONS: Record<string, string> = {
   "/compliance": "Live compliance dashboard: PIF, CPSR, CPNP, Responsible Person, GMP, labels, claims, and more.",
   "/costs": "Editable per-SKU cost and margin calculator.",
   "/traceability": "Batch traceability system: architecture, data model, mock batch records.",
+  "/white-paper": "Full project thesis: dated roadmap from January 2027, architecture, engineering, chemical installation, funding phases.",
+  "/marketing-plan": "Go-to-market plan: positioning, channels, content strategy, ASMR concept films, launch sequencing.",
 };
 
 const EXTRA_PAGES = [

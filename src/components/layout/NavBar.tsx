@@ -39,7 +39,7 @@ export default function NavBar({ isAdmin }: { isAdmin: boolean }) {
             <span className="font-display text-lg tracking-[0.18em] text-cream">
               ROYER
             </span>
-            <span className="section-eyebrow text-[0.6rem] text-gold-light/80">Portugal</span>
+            <span className="section-eyebrow text-[0.6rem] text-gold-light/80">Cosmetics</span>
           </span>
         </Link>
 

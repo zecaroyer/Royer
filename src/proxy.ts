@@ -11,6 +11,8 @@ const PRIVATE_PAGE_PREFIXES = [
   "/traceability",
   "/sops",
   "/site-map",
+  "/white-paper",
+  "/marketing-plan",
 ];
 
 // The four root dossiers carry the same internal/financial detail as the
@@ -47,6 +49,8 @@ export const config = {
     "/traceability/:path*",
     "/sops/:path*",
     "/site-map/:path*",
+    "/white-paper/:path*",
+    "/marketing-plan/:path*",
     "/PROJECT_DOSSIER.md",
     "/FORMULATION_DOSSIER.md",
     "/INVESTMENT_PLAN.md",

@@ -1,4 +1,4 @@
-# ROYER — Angel Investment Plan
+# ROYER Cosmetics — Angel Investment Plan
 
 **Status: technical and commercial draft, pre-seed stage.** This document is not
 legal, financial, or investment advice, and is not an offer to sell securities.
