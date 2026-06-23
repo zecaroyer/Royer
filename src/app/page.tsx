@@ -28,6 +28,7 @@ const TOC = [
   { id: "story", label: "Our story" },
   { id: "concept", label: "Concept" },
   { id: "product-families", label: "Product families" },
+  { id: "ritual", label: "The ritual" },
   { id: "why-aloe", label: "Why aloe vera" },
   { id: "compliance-approach", label: "Compliance" },
   { id: "traceability", label: "Traceability" },
@@ -223,6 +224,32 @@ export default function HomePage() {
             See the full 6-SKU catalogue →
           </Button>
           </RevealOnScroll>
+        </Container>
+      </section>
+
+      {/* The ritual — hero video */}
+      <section id="ritual" className="bg-cream-2 py-20 lg:py-28">
+        <Container>
+          <SectionHeading
+            align="center"
+            eyebrow="The ritual"
+            title="A minute of morning, slowed down."
+            description="An AI-generated concept film — not footage of a real customer. The voiceover describes texture and sensation only; it makes no claim about results, and isn't a testimonial."
+          />
+          <div className="mx-auto mt-10 max-w-xs">
+            <div className="glass-card-light relative aspect-[9/16] overflow-hidden rounded-[2rem]">
+              <video
+                src="/marketing/hero.mp4"
+                controls
+                playsInline
+                preload="metadata"
+                className="h-full w-full object-cover"
+              />
+              <span className="absolute bottom-3 right-3 rounded-full bg-deep/80 px-2.5 py-1 text-[0.6rem] font-medium text-cream/90 backdrop-blur-sm">
+                AI concept film — not a real customer
+              </span>
+            </div>
+          </div>
         </Container>
       </section>
 
